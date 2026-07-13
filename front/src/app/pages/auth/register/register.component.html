@@ -1,0 +1,56 @@
+<div class="register-container">
+  <div class="register-card">
+    <h1>MDD</h1>
+    <h2>Inscription</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Nom d'utilisateur</mat-label>
+        <input matInput formControlName="username">
+        <mat-error *ngIf="registerForm.get('username')?.hasError('required')">
+          Ce champ est requis
+        </mat-error>
+        <mat-error *ngIf="registerForm.get('username')?.hasError('minlength')">
+          Minimum 3 caractères
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Adresse e-mail</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="registerForm.get('email')?.hasError('required')">
+          Ce champ est requis
+        </mat-error>
+        <mat-error *ngIf="registerForm.get('email')?.hasError('email')">
+          Email invalide
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Mot de passe</mat-label>
+        <input matInput type="password" formControlName="password">
+        <mat-error *ngIf="registerForm.get('password')?.hasError('required')">
+          Ce champ est requis
+        </mat-error>
+        <mat-error *ngIf="registerForm.get('password')?.hasError('minlength')">
+          Minimum 8 caractères
+        </mat-error>
+        <mat-error *ngIf="registerForm.get('password')?.hasError('pattern')">
+          Doit contenir 1 chiffre, 1 minuscule, 1 majuscule et 1 caractère spécial
+        </mat-error>
+      </mat-form-field>
+
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="loading">
+        {{ loading ? 'Inscription...' : 'S\'inscrire' }}
+      </button>
+
+      <p class="login-link">
+        Déjà un compte ? <a routerLink="/login">Se connecter</a>
+      </p>
+    </form>
+  </div>
+</div>
