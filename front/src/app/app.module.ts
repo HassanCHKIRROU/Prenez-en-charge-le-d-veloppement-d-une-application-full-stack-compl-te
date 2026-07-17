@@ -14,6 +14,10 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { FeedComponent } from './pages/feed/feed.component';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
+import { DatePipe } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { ProfileEditComponent } from './pages/profile/edit/profile-edit.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,9 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    FeedComponent
+    FeedComponent,
+    ProfileComponent,
+    ProfileEditComponent
   ],
   imports: [
     BrowserModule,
@@ -31,10 +37,11 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
     ReactiveFormsModule,
     MatButtonModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }, DatePipe
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,99 @@
+.profile-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 24px;
+    color: #1976d2;
+  }
+}
+
+.profile-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.profile-info {
+  .info-group {
+    margin-bottom: 16px;
+
+    label {
+      font-weight: 600;
+      color: #666;
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 0;
+      color: #333;
+    }
+  }
+
+  .actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+
+    button {
+      padding: 8px 24px;
+    }
+  }
+}
+
+.subscriptions-section {
+  margin-top: 32px;
+  border-top: 1px solid #eee;
+  padding-top: 24px;
+
+  h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 16px;
+  }
+}
+
+.subscription-card {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+
+  h3 {
+    margin: 0 0 4px 0;
+    font-size: 16px;
+    color: #1976d2;
+  }
+
+  p {
+    margin: 0 0 12px 0;
+    color: #666;
+    font-size: 14px;
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.error {
+  background: #fde8e8;
+  color: #d32f2f;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.empty {
+  color: #888;
+  text-align: center;
+  padding: 20px;
+}

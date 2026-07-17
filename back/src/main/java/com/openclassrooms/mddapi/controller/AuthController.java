@@ -17,24 +17,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class AuthController {
 
     private final AuthService authService;
     
     
-    @Autowired
-    private JwtAuthenticationFilter jwtAuthenticationFilter;
-    
-    
-    
-   /* 
-
     public AuthController(AuthService authService) {
 		this.authService = authService;
 	}
 
-*/
+
+
+
+
+	@Autowired
+    private JwtAuthenticationFilter jwtAuthenticationFilter;
+    
+    
+    
+  
 
 	@PostMapping("/register")
     public ResponseEntity<AuthResponse> register(@Valid @RequestBody RegisterRequest request) {

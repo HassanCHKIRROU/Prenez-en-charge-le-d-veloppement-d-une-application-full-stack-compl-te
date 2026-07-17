@@ -9,9 +9,13 @@ import { AuthService } from '../../../core/services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+
+
   loginForm: FormGroup;
   errorMessage: string = '';
   loading: boolean = false;
+
+
 
   constructor(
     private fb: FormBuilder,
@@ -24,6 +28,9 @@ export class LoginComponent {
     });
   }
 
+
+
+  
   onSubmit(): void {
     if (this.loginForm.invalid) {
       return;

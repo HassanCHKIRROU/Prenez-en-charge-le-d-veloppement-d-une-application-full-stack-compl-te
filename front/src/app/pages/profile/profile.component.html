@@ -1,0 +1,55 @@
+<div class="profile-container">
+  <h1>Profil utilisateur</h1>
+
+  <!-- Chargement -->
+  <div *ngIf="loading" class="loading">Chargement...</div>
+
+  <!-- Erreur -->
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <!-- Profil -->
+  <div *ngIf="userProfile && !loading" class="profile-card">
+    <div class="profile-info">
+      <div class="info-group">
+        <label>Nom d'utilisateur</label>
+        <p>{{ userProfile.username }}</p>
+      </div>
+
+      <div class="info-group">
+        <label>Adresse e-mail</label>
+        <p>{{ userProfile.email }}</p>
+      </div>
+
+      <div class="info-group">
+        <label>Membre depuis</label>
+        <p>{{formattedCreatedAt }}</p>
+      </div>
+
+      <div class="actions">
+        <button mat-raised-button color="primary" routerLink="/profile/edit">
+          Modifier le profil
+        </button>
+        <button mat-raised-button color="warn" (click)="logout()">
+          Se déconnecter
+        </button>
+      </div>
+    </div>
+
+    <!-- Abonnements -->
+    <div class="subscriptions-section">
+      <h2>Souscriptions</h2>
+
+      <div *ngIf="userProfile.subscriptions.length === 0" class="empty">
+        Vous n'êtes abonné à aucun thème.
+      </div>
+
+      <div *ngFor="let topic of userProfile.subscriptions" class="subscription-card">
+        <h3>{{ topic.title }}</h3>
+        <p>{{ topic.description }}</p>
+        <button mat-raised-button color="warn" (click)="unsubscribe(topic.id)">
+          Se désabonner
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

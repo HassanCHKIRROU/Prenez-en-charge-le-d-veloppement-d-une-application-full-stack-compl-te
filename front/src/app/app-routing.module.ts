@@ -5,12 +5,17 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { FeedComponent } from './pages/feed/feed.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ProfileEditComponent } from './pages/profile/edit/profile-edit.component'; 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'feed', component: FeedComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+  { path: 'profile/edit', component: ProfileEditComponent, canActivate: [AuthGuard] },
+ // { path: 'profile/edit', component: ProfileEditComponent, canActivate: [AuthGuard]},
   { path: '**', redirectTo: '' }
 ];
 

@@ -9,9 +9,13 @@ import { AuthService } from '../../../core/services/auth.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
+
+
   registerForm: FormGroup;
   errorMessage: string = '';
   loading: boolean = false;
+
+
 
   constructor(
     private fb: FormBuilder,
@@ -29,6 +33,9 @@ export class RegisterComponent {
     });
   }
 
+
+
+  
   onSubmit(): void {
     if (this.registerForm.invalid) {
       return;
