@@ -4,6 +4,8 @@ import { UserService } from '../../core/services/user.service';
 import { UserProfileResponse } from '../../shared/models/user.model';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { SubscriptionService } from 'src/app/core/services/subscription.service';
+import { Topic } from 'src/app/shared/models/topic.model';
 
 @Component({
   selector: 'app-profile',
@@ -18,6 +20,7 @@ export class ProfileComponent implements OnInit {
   loading: boolean = true;
   error: string = '';
   formattedCreatedAt: string ='';
+  success: string= '';
 
 
 
@@ -25,7 +28,9 @@ export class ProfileComponent implements OnInit {
     private userService: UserService,
     private authService: AuthService,
     private router : Router,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private subscriptionService: SubscriptionService
+   // private topic: Topic
 ) {}
 
 
@@ -62,12 +67,29 @@ export class ProfileComponent implements OnInit {
   }
 
 
+  
 
-  unsubscribe(topicId: number): void{
-    if(confirm('Voulez- vous désabonner de ce thème?')){
-        console.log('Se désabonner de topic: ' ,topicId)
+unsubscribe(topicId: number): void {
+    if (!confirm('Voulez-vous vous désabonner de ce thème ?')) {
+      return;
     }
+
+    this.subscriptionService.unsubscribe(topicId).subscribe({
+      next: () => {
+        // Supprimer le thème de la liste des abonnements
+        this.userProfile.subscriptions = this.userProfile.subscriptions.filter(
+          (topic: Topic) => topic.id !== topicId
+        );
+        this.success = 'Désabonnement effectué avec succès';
+        setTimeout(() => this.success = '', 3000);
+      },
+      error: (err) => {
+        this.error = err.error?.message || 'Erreur lors du désabonnement';
+        setTimeout(() => this.error = '', 3000);
+      }
+    });
   }
+
 
 
 

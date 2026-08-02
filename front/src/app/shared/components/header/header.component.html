@@ -1,0 +1,20 @@
+<mat-toolbar color="primary" class="header">
+  <span class="logo" routerLink="/feed">MDD</span>
+  <span class="spacer"></span>
+  <nav>
+    <a mat-button 
+       routerLink="/feed" 
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact: true}">
+      Articles
+    </a>
+    <a mat-button 
+       routerLink="/topics" 
+       routerLinkActive="active">
+      Thème
+    </a>
+    <button mat-icon-button routerLink="/profile" class="profile-btn">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </nav>
+</mat-toolbar>

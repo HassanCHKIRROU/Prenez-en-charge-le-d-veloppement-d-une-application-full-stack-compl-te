@@ -31,6 +31,9 @@ public class JwtTokenProvider {
 
  
     
+   
+    
+    
     
     public String generateToken(Authentication authentication) {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
@@ -48,6 +51,11 @@ public class JwtTokenProvider {
     
     
     
+    
+    
+    
+    
+    
     public String getUsernameFromToken(String token) {
         Claims claims = Jwts.parser()
                 .verifyWith(getSigningKey())
@@ -57,6 +65,11 @@ public class JwtTokenProvider {
         return claims.getSubject();
     }
 
+    
+    
+    
+    
+    
     
     
     

@@ -1,0 +1,115 @@
+.topics-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.topics-header {
+  margin-bottom: 32px;
+
+  h1 {
+    font-size: 28px;
+    color: #1976d2;
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: #666;
+    font-size: 16px;
+  }
+}
+
+.topics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.topic-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  }
+
+  .topic-info {
+    flex: 1;
+
+    h2 {
+      font-size: 18px;
+      color: #333;
+      margin: 0 0 4px 0;
+    }
+
+    p {
+      font-size: 14px;
+      color: #666;
+      margin: 0;
+      line-height: 1.5;
+    }
+  }
+
+  .topic-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    margin-left: 16px;
+
+    button {
+      min-width: 140px;
+      padding: 8px 16px;
+    }
+
+    .subscribed-badge {
+      color: #2e7d32;
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.error {
+  background: #fde8e8;
+  color: #d32f2f;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.empty {
+  text-align: center;
+  padding: 40px;
+  color: #888;
+}
+
+// 📱 Responsive
+@media (max-width: 768px) {
+  .topic-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+
+    .topic-actions {
+      margin-left: 0;
+      justify-content: flex-start;
+
+      button {
+        min-width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+<div class="article-detail-container">
+  <button mat-button (click)="goBack()" class="back-btn">
+    ← Retour au fil
+  </button>
+
+  <div *ngIf="loading" class="loading">Chargement...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div *ngIf="article && !loading" class="article-card">
+    <!-- En-tête article -->
+    <div class="article-header">
+      <h1>{{ article.title }}</h1>
+      <span class="topic-badge">{{ article.topic.title }}</span>
+    </div>
+
+    <!-- Métadonnées -->
+    <div class="article-meta">
+      <span>Par <strong>{{ article.author.username }}</strong></span>
+      <span>•</span>
+      <span>{{ article.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
+    </div>
+
+    <!-- Contenu -->
+    <div class="article-content">
+      <p>{{ article.content }}</p>
+    </div>
+
+    <!-- Section Commentaires -->
+    <div class="comments-section">
+      <h2>Commentaires ({{ article.comments.length || 0 }})</h2>
+
+      <div *ngIf="article.comments.length === 0" class="no-comments">
+        <p>Aucun commentaire pour le moment.</p>
+      </div>
+
+      <div *ngFor="let comment of article.comments" class="comment-item">
+        <div class="comment-header">
+          <strong>{{ comment.authorUsername }}</strong>
+          <span class="comment-date">{{ comment.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
+        </div>
+        <p class="comment-content">{{ comment.content }}</p>
+      </div>
+
+      <!-- Ajouter un commentaire -->
+      <div class="add-comment">
+        <h3>Ajouter un commentaire</h3>
+        <form [formGroup]="commentForm" (ngSubmit)="onSubmitComment()">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Écrivez ici votre commentaire</mat-label>
+            <textarea matInput formControlName="content" rows="3"></textarea>
+            <mat-error *ngIf="commentForm.get('content')?.hasError('required')">
+              Le commentaire est requis
+            </mat-error>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" type="submit" [disabled]="submitting || commentForm.invalid">
+            {{ submitting ? 'Envoi...' : 'Publier le commentaire' }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

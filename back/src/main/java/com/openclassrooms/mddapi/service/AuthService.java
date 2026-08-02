@@ -6,7 +6,6 @@ import com.openclassrooms.mddapi.dto.response.AuthResponse;
 import com.openclassrooms.mddapi.model.User;
 import com.openclassrooms.mddapi.repository.UserRepository;
 import com.openclassrooms.mddapi.security.JwtTokenProvider;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -15,8 +14,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class AuthService {
+	
 	
 	
 
@@ -26,21 +25,25 @@ public class AuthService {
     private final JwtTokenProvider tokenProvider;
     
     
-  /*  
-
-    public AuthService(AuthenticationManager authenticationManager, UserRepository userRepository,
-			PasswordEncoder passwordEncoder, JwtTokenProvider tokenProvider) {
-		
-		this.authenticationManager = authenticationManager;
-		this.userRepository = userRepository;
-		this.passwordEncoder = passwordEncoder;
-		this.tokenProvider = tokenProvider;
-	}
-*/
-
+    
+    
     
 
-	public AuthResponse register(RegisterRequest request) {
+    public AuthService(AuthenticationManager authenticationManager, UserRepository userRepository,
+                       PasswordEncoder passwordEncoder, JwtTokenProvider tokenProvider) {
+        this.authenticationManager = authenticationManager;
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.tokenProvider = tokenProvider;
+    }
+    
+    
+    
+    
+    
+    
+
+    public AuthResponse register(RegisterRequest request) {
         // Vérifier si l'email existe déjà
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new RuntimeException("Cet email est déjà utilisé");
@@ -51,12 +54,11 @@ public class AuthService {
             throw new RuntimeException("Ce nom d'utilisateur est déjà utilisé");
         }
 
-        // Créer l'utilisateur
-        User user = User.builder()
-                .username(request.getUsername())
-                .email(request.getEmail())
-                .password(passwordEncoder.encode(request.getPassword()))
-                .build();
+        //  Créer l'utilisateur sans builder
+        User user = new User();
+        user.setUsername(request.getUsername());
+        user.setEmail(request.getEmail());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
 
         user = userRepository.save(user);
 
@@ -65,26 +67,28 @@ public class AuthService {
                 new UsernamePasswordAuthenticationToken(user.getUsername(), request.getPassword())
         );
 
-        
-        
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = tokenProvider.generateToken(authentication);
 
-        return AuthResponse.builder()
-                .token(token)
-                .id(user.getId())
-                .username(user.getUsername())
-                .email(user.getEmail())
-                .build();
+        // Retourner la réponse sans builder
+        AuthResponse response = new AuthResponse();
+        response.setToken(token);
+        response.setId(user.getId());
+        response.setUsername(user.getUsername());
+        response.setEmail(user.getEmail());
+
+        return response;
     }
 
-	
-	
-	
-	
-	
-	
-	
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public AuthResponse login(LoginRequest request) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getUsernameOrEmail(), request.getPassword())
@@ -96,11 +100,13 @@ public class AuthService {
         User user = userRepository.findByEmailOrUsername(request.getUsernameOrEmail(), request.getUsernameOrEmail())
                 .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
 
-        return AuthResponse.builder()
-                .token(token)
-                .id(user.getId())
-                .username(user.getUsername())
-                .email(user.getEmail())
-                .build();
+        //  Retourner la réponse 
+        AuthResponse response = new AuthResponse();
+        response.setToken(token);
+        response.setId(user.getId());
+        response.setUsername(user.getUsername());
+        response.setEmail(user.getEmail());
+
+        return response;
     }
 }

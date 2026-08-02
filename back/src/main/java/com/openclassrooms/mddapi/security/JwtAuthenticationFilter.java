@@ -36,7 +36,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         // Ignorer les endpoints d'auth
         String path = request.getRequestURI();
-        if (path.startsWith("/auth/register") || path.startsWith("/auth/login")) {
+       // if (path.startsWith("/auth/register") || path.startsWith("/auth/login")) {
+        if(path.startsWith("/auth")) {
             filterChain.doFilter(request, response);
             return;
         }
@@ -59,6 +60,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
+    
+    
+   
     
     
     

@@ -18,8 +18,17 @@ import { DatePipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { ProfileEditComponent } from './pages/profile/edit/profile-edit.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { TopicsComponent } from './pages/topics/topics.component';
+import { MatSnackBarModule} from '@angular/material/snack-bar'
+import { ArticleCreateComponent } from './pages/article/create/article-create.component';
+import { ArticleDetailComponent } from './pages/article/detail/article-detail.component';
+import { MatOptionModule } from '@angular/material/core';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 @NgModule({
+
   declarations: [
     AppComponent,
     HomeComponent,
@@ -27,8 +36,14 @@ import { ProfileComponent } from './pages/profile/profile.component';
     RegisterComponent,
     FeedComponent,
     ProfileComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    TopicsComponent,
+    ArticleCreateComponent,
+    ArticleDetailComponent,
+    HeaderComponent
   ],
+
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -38,11 +53,17 @@ import { ProfileComponent } from './pages/profile/profile.component';
     MatButtonModule,
     MatInputModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatOptionModule,
+    MatSnackBarModule,
+    MatToolbarModule
   ],
+
+
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }, DatePipe
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

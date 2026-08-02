@@ -1,6 +1,17 @@
-<div class="center">
-  <img src="/assets/logo_p6.png" alt="logo" />
-  <h1>MDD</h1>
-  <p>Réseau social des développeurs</p>
-  <button mat-raised-button color="primary" (click)="start()">Commencer</button>
+<div class="home-container">
+  <div class="home-content">
+    <div class="logo-section">
+      <img src="/assets/logo_p6.png" alt="MDD Logo" class="logo" />
+      
+    </div>
+
+    <div class="actions">
+      <button  class="btn-login" (click)="goToLogin()">
+        Se connecter
+      </button>
+      <button  class="btn-register" (click)="goToRegister()">
+        S'inscrire
+      </button>
+    </div>
+  </div>
 </div>

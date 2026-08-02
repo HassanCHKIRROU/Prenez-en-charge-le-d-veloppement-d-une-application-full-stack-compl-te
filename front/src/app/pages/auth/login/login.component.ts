@@ -8,6 +8,7 @@ import { AuthService } from '../../../core/services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent {
 
 
@@ -30,6 +31,7 @@ export class LoginComponent {
 
 
 
+  
   
   onSubmit(): void {
     if (this.loginForm.invalid) {

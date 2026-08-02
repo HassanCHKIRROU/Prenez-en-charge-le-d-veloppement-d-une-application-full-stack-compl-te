@@ -15,15 +15,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/user")
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class UserController {
 	
 	
 
     private final UserService userService;
     
+    
+    
 
-    @GetMapping("/profile")
+    //Constructeur
+    public UserController(UserService userService) {
+	    this.userService = userService;
+	}
+
+    
+    
+
+//Récuperer le profil
+	@GetMapping("/profile")
     public ResponseEntity<UserProfileResponse> getProfile() {
         return ResponseEntity.ok(userService.getCurrentUserProfile());
     }

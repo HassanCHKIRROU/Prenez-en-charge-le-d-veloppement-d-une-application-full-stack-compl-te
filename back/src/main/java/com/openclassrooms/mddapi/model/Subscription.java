@@ -11,10 +11,6 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "subscription")
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class Subscription {
 	
 
@@ -42,4 +38,70 @@ public class Subscription {
     protected void onCreate() {
         createdAt = LocalDateTime.now();
     }
+
+
+   
+    
+    //Constructeurs
+    
+   public Subscription() {} 
+    
+    
+    public Subscription(Long id, User user, Topic topic, LocalDateTime createdAt) {
+	
+		this.id = id;
+		this.user = user;
+		this.topic = topic;
+		this.createdAt = createdAt;
+	}
+
+
+
+
+
+
+
+	// Getters & Setters
+    
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+	public Topic getTopic() {
+		return topic;
+	}
+
+
+	public void setTopic(Topic topic) {
+		this.topic = topic;
+	}
+
+
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+
+
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+    
+    
+    
 }

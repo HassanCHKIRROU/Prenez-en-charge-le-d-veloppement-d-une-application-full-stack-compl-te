@@ -1,6 +1,7 @@
 import { Topic } from '../../shared/models/topic.model';
 
 export interface User {
+
     id: number;
     username: string;
     email: string;
@@ -9,12 +10,20 @@ export interface User {
 }
 
 
+
+
+
+
 export interface UserProfileResponse extends User {
+
     subscriptions: Topic[];
 }
 
 
+
+
 export interface UpdateProfileRequest {
+    
     username: string;
     email: string;
     password: string; 

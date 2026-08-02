@@ -23,6 +23,8 @@ public class AuthController {
     private final AuthService authService;
     
     
+    
+    //Constructeur pour injecter le service
     public AuthController(AuthService authService) {
 		this.authService = authService;
 	}

@@ -44,8 +44,11 @@
       </div>
 
       <div *ngFor="let topic of userProfile.subscriptions" class="subscription-card">
-        <h3>{{ topic.title }}</h3>
-        <p>{{ topic.description }}</p>
+        <div class="subscription-info">
+          <h3> {{topic.title}} </h3>
+          <p> {{topic.description}} </p>
+        </div>
+        
         <button mat-raised-button color="warn" (click)="unsubscribe(topic.id)">
           Se désabonner
         </button>

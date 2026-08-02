@@ -8,10 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class UpdateProfileRequest {
 	
 	
@@ -31,4 +28,70 @@ public class UpdateProfileRequest {
     
     @Size(min = 8, message = "Le mot de passe doit contenir au moins 8 caractères")
     private String password;
+
+
+    
+    
+    
+    //Constructors
+    public UpdateProfileRequest() {}
+
+
+	public UpdateProfileRequest(
+			@NotBlank(message = "Le nom d'utilisateur est requis") @Size(min = 3, max = 50, message = "Le nom d'utilisateur doit faire entre 3 et 50 caractères") String username,
+			@NotBlank(message = "L'email est requis") @Email(message = "Format d'email invalide") String email,
+			@Size(min = 8, message = "Le mot de passe doit contenir au moins 8 caractères") String password) {
+	
+		this.username = username;
+		this.email = email;
+		this.password = password;
+	}
+
+
+
+
+	
+	
+	//Getters & Setters 
+	public String getUsername() {
+		return username;
+	}
+
+
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+    
+    
+    
 }

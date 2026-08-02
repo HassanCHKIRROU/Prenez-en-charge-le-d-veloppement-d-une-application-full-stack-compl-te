@@ -7,17 +7,22 @@ import { AuthService } from '../../core/services/auth.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent {
+
+  
   constructor(
     private authService: AuthService,
     private router: Router
   ) {}
 
-  start(): void {
-    if (this.authService.isAuthenticated()) {
-      this.router.navigate(['/feed']);
-    } else {
-      this.router.navigate(['/login']);
-    }
+
+  goToLogin() : void{
+    this.router.navigate(['/login']);
+  }
+
+
+  goToRegister(): void{
+    this.router.navigate(['/register']);
   }
 }

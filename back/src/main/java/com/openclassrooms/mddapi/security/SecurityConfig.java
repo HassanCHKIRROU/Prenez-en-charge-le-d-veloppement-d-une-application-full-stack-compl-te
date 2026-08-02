@@ -37,10 +37,13 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
+                		
                         .requestMatchers("/auth/register", "/auth/login").permitAll()
+                        .requestMatchers("/topics/**", "/subscriptions/**", "/user/**", "/articles/**").authenticated()
                         .anyRequest().authenticated()
-                )
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                		.anyRequest().permitAll()
+                );
+               // .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
@@ -61,7 +64,7 @@ public class SecurityConfig {
     }
 
     
-    
+   
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();

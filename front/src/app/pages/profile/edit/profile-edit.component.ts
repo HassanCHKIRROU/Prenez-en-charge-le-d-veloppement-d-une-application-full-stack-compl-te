@@ -9,6 +9,7 @@ import { AuthService } from '../../../core/services/auth.service';
   templateUrl: './profile-edit.component.html',
   styleUrls: ['./profile-edit.component.scss']
 })
+
 export class ProfileEditComponent implements OnInit {
 
 
@@ -111,10 +112,10 @@ export class ProfileEditComponent implements OnInit {
         
         //  Reconnecter l'utilisateur avec ses nouvelles identifiants
         setTimeout(() => {
-          // 1. Déconnecter
+          //  Déconnecter
           this.authService.logout();
           
-          // 2. Reconnecter automatiquement
+          //  Reconnecter automatiquement
           this.authService.login({
             usernameOrEmail: data.username,
             password: formValue.password || 'ancien_mot_de_passe_non_disponible'

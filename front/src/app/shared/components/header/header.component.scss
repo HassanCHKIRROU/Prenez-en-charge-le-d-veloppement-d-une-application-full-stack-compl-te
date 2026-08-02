@@ -1,0 +1,106 @@
+.header {
+  padding: 0 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  .logo {
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 1px;
+    color: white;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    a {
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+      padding: 6px 16px;
+      border-radius: 4px;
+      transition: all 0.2s;
+
+      &:hover {
+        background: rgba(255,255,255,0.15);
+        color: white;
+      }
+
+      &.active {
+        background: rgba(255,255,255,0.2);
+        color: white;
+      }
+    }
+
+    .profile-btn {
+      color: white;
+      margin-left: 8px;
+
+      mat-icon {
+        font-size: 32px;
+        width: 32px;
+        height: 32px;
+      }
+
+      &:hover {
+        background: rgba(255,255,255,0.15);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0 12px;
+
+    .logo {
+      font-size: 20px;
+    }
+
+    nav {
+      a {
+        font-size: 13px;
+        padding: 4px 10px;
+      }
+
+      .profile-btn mat-icon {
+        font-size: 28px;
+        width: 28px;
+        height: 28px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0 8px;
+
+    .logo {
+      font-size: 18px;
+    }
+
+    nav {
+      gap: 2px;
+
+      a {
+        font-size: 12px;
+        padding: 4px 8px;
+      }
+
+      .profile-btn mat-icon {
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}

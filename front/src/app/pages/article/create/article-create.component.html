@@ -1,0 +1,36 @@
+<div class="article-create-container">
+  <div class="header-nav">
+    <span class="logo">MDD</span>
+    <nav>
+      <a routerLink="/feed" routerLinkActive="active">Articles</a>
+      <a routerLink="/topics" routerLinkActive="active">Thème</a>
+    </nav>
+  </div>
+
+  <div class="create-card">
+    <h1>Créer un nouvel article</h1>
+
+    <div *ngIf="error" class="error">{{ error }}</div>
+
+    <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+      <div class="form-field">
+        <label>Sélectionner un topic</label>
+        <input matInput formControlName="topicId" placeholder="Sélectionner un topic">
+      </div>
+
+      <div class="form-field">
+        <label>Titre de l'article</label>
+        <input matInput formControlName="title" placeholder="Titre de l'article">
+      </div>
+
+      <div class="form-field">
+        <label>Contenu de l'article</label>
+        <textarea matInput formControlName="content" rows="6" placeholder="Contenu de l'article"></textarea>
+      </div>
+
+      <button mat-raised-button color="primary" type="submit" class="btn-create" [disabled]="submitting || articleForm.invalid">
+        {{ submitting ? 'Création en cours...' : 'Créer' }}
+      </button>
+    </form>
+  </div>
+</div>

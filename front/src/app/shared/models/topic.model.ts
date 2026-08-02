@@ -5,6 +5,11 @@ export interface Topic{
     description: string;
 }
 
+
+
+
+
 export interface TopicDTO extends Topic{
+    
     subscribed: boolean;
 }

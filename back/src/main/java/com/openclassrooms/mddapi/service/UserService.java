@@ -7,28 +7,41 @@ import com.openclassrooms.mddapi.model.Subscription;
 import com.openclassrooms.mddapi.model.User;
 import com.openclassrooms.mddapi.repository.SubscriptionRepository;
 import com.openclassrooms.mddapi.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
-
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class UserService {
+	
+	
 
-	
-	
     private final UserRepository userRepository;
     private final SubscriptionRepository subscriptionRepository;
     private final PasswordEncoder passwordEncoder;
+    
+    
+    
+    
+    
+    
 
+    public UserService(UserRepository userRepository,
+                       SubscriptionRepository subscriptionRepository,
+                       PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.subscriptionRepository = subscriptionRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
+
+    
+    
+    
+    
     
     
     
@@ -39,23 +52,25 @@ public class UserService {
 
         List<Subscription> subscriptions = subscriptionRepository.findByUserId(user.getId());
 
-        List<TopicDTO> topicDTOs = subscriptions.stream()
-                .map(sub -> TopicDTO.builder()
-                        .id(sub.getTopic().getId())
-                        .title(sub.getTopic().getTitle())
-                        .description(sub.getTopic().getDescription())
-                        .subscribed(true)
-                        .build())
-                .collect(Collectors.toList());
+        List<TopicDTO> topicDTOs = new ArrayList<>();
+        for (Subscription sub : subscriptions) {
+            TopicDTO dto = new TopicDTO();
+            dto.setId(sub.getTopic().getId());
+            dto.setTitle(sub.getTopic().getTitle());
+            dto.setDescription(sub.getTopic().getDescription());
+            dto.setSubscribed(true);
+            topicDTOs.add(dto);
+        }
 
-        return UserProfileResponse.builder()
-                .id(user.getId())
-                .username(user.getUsername())
-                .email(user.getEmail())
-                .createdAt(user.getCreatedAt())
-                .updatedAt(user.getUpdatedAt())
-                .subscriptions(topicDTOs)
-                .build();
+        UserProfileResponse response = new UserProfileResponse();
+        response.setId(user.getId());
+        response.setUsername(user.getUsername());
+        response.setEmail(user.getEmail());
+        response.setCreatedAt(user.getCreatedAt());
+        response.setUpdatedAt(user.getUpdatedAt());
+        response.setSubscriptions(topicDTOs);
+
+        return response;
     }
 
     
@@ -66,66 +81,50 @@ public class UserService {
     
     
     
-    
-// Mis à jour profil 
     @Transactional
     public UserProfileResponse updateProfile(UpdateProfileRequest request) {
-        String currentUsername = SecurityContextHolder.getContext().getAuthentication().getName();
-        User user = userRepository.findByUsername(currentUsername)
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
 
-        // Vérifier si le nouveau nom d'utilisateur est déjà pris (si changé)
         if (!user.getUsername().equals(request.getUsername()) &&
                 userRepository.existsByUsername(request.getUsername())) {
             throw new RuntimeException("Ce nom d'utilisateur est déjà utilisé");
         }
 
-        // Vérifier si le nouvel email est déjà pris (si changé)
         if (!user.getEmail().equals(request.getEmail()) &&
                 userRepository.existsByEmail(request.getEmail())) {
             throw new RuntimeException("Cet email est déjà utilisé");
         }
 
-        // Mise à jour des champs
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
 
-        // Si un nouveau mot de passe est fourni, le encoder et le mettre à jour
         if (request.getPassword() != null && !request.getPassword().isEmpty()) {
             user.setPassword(passwordEncoder.encode(request.getPassword()));
         }
 
         user = userRepository.save(user);
 
-     /*   //  Mettre à jour le SecurityContext avec le nouveau nom d'utilisateur
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null) {
-            UsernamePasswordAuthenticationToken newAuth = new UsernamePasswordAuthenticationToken(
-                    user.getUsername(),
-                    authentication.getCredentials(),
-                    authentication.getAuthorities()
-            );
-            SecurityContextHolder.getContext().setAuthentication(newAuth);
-        }
-*/
-        // Récupérer les abonnements pour la réponse
         List<Subscription> subscriptions = subscriptionRepository.findByUserId(user.getId());
-        List<TopicDTO> topicDTOs = subscriptions.stream()
-                .map(sub -> TopicDTO.builder()
-                        .id(sub.getTopic().getId())
-                        .title(sub.getTopic().getTitle())
-                        .description(sub.getTopic().getDescription())
-                        .subscribed(true)
-                        .build())
-                .collect(Collectors.toList());
+        List<TopicDTO> topicDTOs = new ArrayList<>();
+        for (Subscription sub : subscriptions) {
+            TopicDTO dto = new TopicDTO();
+            dto.setId(sub.getTopic().getId());
+            dto.setTitle(sub.getTopic().getTitle());
+            dto.setDescription(sub.getTopic().getDescription());
+            dto.setSubscribed(true);
+            topicDTOs.add(dto);
+        }
 
-        return UserProfileResponse.builder()
-                .id(user.getId())
-                .username(user.getUsername())
-                .email(user.getEmail())
-                .createdAt(user.getCreatedAt())
-                .updatedAt(user.getUpdatedAt())
-                .subscriptions(topicDTOs)
-                .build();
+        UserProfileResponse response = new UserProfileResponse();
+        response.setId(user.getId());
+        response.setUsername(user.getUsername());
+        response.setEmail(user.getEmail());
+        response.setCreatedAt(user.getCreatedAt());
+        response.setUpdatedAt(user.getUpdatedAt());
+        response.setSubscriptions(topicDTOs);
+
+        return response;
     }
 }
