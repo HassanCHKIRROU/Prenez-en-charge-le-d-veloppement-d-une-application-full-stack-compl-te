@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-08T17:15:43.267Z",
+    "end": "2026-08-08T17:15:46.397Z",
+    "duration": 3130,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e41b0380-803d-414d-b4a0-2e567653bff9",
+      "title": "",
+      "fullFile": "cypress\\e2e\\navigation.cy.ts",
+      "file": "cypress\\e2e\\navigation.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "45dcf221-5816-43d7-ab22-5d6f0277d3a6",
+          "title": "Navigation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should navigate between pages",
+              "fullTitle": "Navigation should navigate between pages",
+              "timedOut": null,
+              "duration": 2516,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Aller aux Thèmes\ncy.contains('Thèmes').click();\ncy.url().should('include', '/topics');\n// Revenir au Feed\ncy.contains('Articles').click();\ncy.url().should('include', '/feed');\n// Aller au Profil\ncy.get('button[routerLink=\"/profile\"], a[routerLink=\"/profile\"]').click();\ncy.url().should('include', '/profile');",
+              "err": {},
+              "uuid": "251eb7a9-518f-4ae0-80ff-3a50475160cc",
+              "parentUUID": "45dcf221-5816-43d7-ab22-5d6f0277d3a6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "251eb7a9-518f-4ae0-80ff-3a50475160cc"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2516,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

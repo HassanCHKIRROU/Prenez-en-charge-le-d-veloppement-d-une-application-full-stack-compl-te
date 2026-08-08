@@ -1,106 +1,236 @@
+/* 
+   HEADER -  DESKTOP
+ */
+
 .header {
-  padding: 0 24px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  position: sticky;
-  top: 0;
+
+  width: 837px;
+  height: 94px;
+
+  margin: 0 auto;
+
+  background: #FFFFFF;
+
+  border: 1px solid #000000;
+
+  box-sizing: border-box;
+
+  padding: 0 22px;
+
+  display: flex;
+  align-items: center;
+
   z-index: 1000;
 
-  .logo {
-    font-size: 24px;
-    font-weight: 700;
-    cursor: pointer;
-    letter-spacing: 1px;
-    color: white;
-  }
-
-  .spacer {
-    flex: 1;
-  }
-
-  nav {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-
-    a {
-      color: rgba(255,255,255,0.8);
-      font-weight: 500;
-      padding: 6px 16px;
-      border-radius: 4px;
-      transition: all 0.2s;
-
-      &:hover {
-        background: rgba(255,255,255,0.15);
-        color: white;
-      }
-
-      &.active {
-        background: rgba(255,255,255,0.2);
-        color: white;
-      }
-    }
-
-    .profile-btn {
-      color: white;
-      margin-left: 8px;
-
-      mat-icon {
-        font-size: 32px;
-        width: 32px;
-        height: 32px;
-      }
-
-      &:hover {
-        background: rgba(255,255,255,0.15);
-      }
-    }
-  }
 }
 
-@media (max-width: 768px) {
-  .header {
-    padding: 0 12px;
+/*========================================*/
 
-    .logo {
-      font-size: 20px;
-    }
+.logo {
 
-    nav {
-      a {
-        font-size: 13px;
-        padding: 4px 10px;
-      }
+  width: 140px;
+  height: 81px;
 
-      .profile-btn mat-icon {
-        font-size: 28px;
-        width: 28px;
-        height: 28px;
-      }
-    }
-  }
+  object-fit: contain;
+
+  cursor: pointer;
+
+  flex-shrink: 0;
+
 }
 
-@media (max-width: 480px) {
-  .header {
-    padding: 0 8px;
+/*========================================*/
 
-    .logo {
-      font-size: 18px;
-    }
+.spacer {
 
-    nav {
-      gap: 2px;
+  flex: 1;
 
-      a {
-        font-size: 12px;
-        padding: 4px 8px;
-      }
+}
 
-      .profile-btn mat-icon {
-        font-size: 24px;
-        width: 24px;
-        height: 24px;
-      }
-    }
+/*========================================*/
+
+nav {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 26px;
+
+}
+
+/*========================================*/
+
+.logout-btn {
+
+  color: #A40F0F !important;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+}
+
+/*========================================*/
+
+nav a {
+
+  color: #000;
+
+  text-decoration: none;
+
+  font-size: 20px;
+
+  font-weight: 400;
+
+}
+
+nav a.active {
+
+  color: #6C5CCF;
+
+}
+
+
+
+/*========================================*/
+.profile-btn {
+  width: 40px;
+  height: 40px;
+  background: #D9D9D9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-btn mat-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  color: #FFFFFF;
+}
+/* Hamburger caché sur Desktop
+*/
+
+.hamburger-btn {
+
+  display: none;
+
+}
+
+/*RESPONSIVE MOBILE 
+*/
+
+@media screen and (max-width:768px){
+
+  .header{
+
+    width:295px;
+    height:62px;
+
+    margin:0 auto;
+
+    padding:0 10px;
+
+    border:1px solid #000000;
+
+    background:#FFFFFF;
+
   }
+
+  .logo{
+
+    width:92px;
+    height:53px;
+
+    object-fit:contain;
+
+  }
+
+  /* Cache toute la navigation desktop */
+
+  nav{
+
+    display:none;
+
+  }
+
+  /* Affiche le hamburger */
+
+  .hamburger-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:40px;
+    height:40px;
+
+    color:#000000;
+
+    padding:0;
+
+  }
+
+  .hamburger-btn mat-icon{
+
+    font-size:28px;
+
+    width:28px;
+    height:28px;
+
+  }
+
+}
+
+/* Hamburger
+*/
+
+.hamburger-btn{
+
+    display:none;
+
+}
+
+/*
+ Responsive
+*/
+
+@media(max-width:768px){
+
+    .header{
+
+        width:295px;
+
+        height:62px;
+
+        padding:0 10px;
+
+    }
+
+    .logo{
+
+        width:92px;
+
+        height:53px;
+
+    }
+
+    nav{
+
+        display:none;
+
+    }
+
+    .hamburger-btn{
+
+        display:flex;
+
+        color:#000;
+
+    }
+
 }

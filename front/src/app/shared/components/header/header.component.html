@@ -1,20 +1,102 @@
-<mat-toolbar color="primary" class="header">
-  <span class="logo" routerLink="/feed">MDD</span>
+<mat-toolbar class="header">
+
+  <!-- Logo -->
+  <img
+      src="assets/logo_p6.png"
+      alt="MDD"
+      class="logo"
+      routerLink="/feed">
+
   <span class="spacer"></span>
+
+  <!-- Navigation Desktop -->
   <nav>
-    <a mat-button 
-       routerLink="/feed" 
-       routerLinkActive="active"
-       [routerLinkActiveOptions]="{exact: true}">
-      Articles
-    </a>
-    <a mat-button 
-       routerLink="/topics" 
-       routerLinkActive="active">
-      Thème
-    </a>
-    <button mat-icon-button routerLink="/profile" class="profile-btn">
-      <mat-icon>account_circle</mat-icon>
+
+    <button
+        mat-button
+        class="logout-btn"
+        (click)="logout()">
+        Se déconnecter
     </button>
+
+    <a
+        mat-button
+        routerLink="/feed"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact:true}">
+        Articles
+    </a>
+
+    <a
+        mat-button
+        routerLink="/topics"
+        routerLinkActive="active">
+        Thèmes
+    </a>
+
+    <button
+        mat-icon-button
+        routerLink="/profile"
+        class="profile-btn">
+
+        <mat-icon>account_circle</mat-icon>
+
+    </button>
+
   </nav>
+
+  <!-- Mobile -->
+  <button
+      mat-icon-button
+      class="hamburger-btn"
+      [matMenuTriggerFor]="mobileMenu">
+
+      <mat-icon>menu</mat-icon>
+
+  </button>
+
 </mat-toolbar>
+
+<!-- Menu Mobile -->
+
+<mat-menu
+    #mobileMenu="matMenu"
+    xPosition="before"
+    class="mobile-menu">
+
+    <button
+        mat-menu-item
+        class="logout-btn"
+        (click)="logout()">
+
+        Se déconnecter
+
+    </button>
+
+    <button
+        mat-menu-item
+        routerLink="/feed">
+
+        Articles
+
+    </button>
+
+    <button
+        mat-menu-item
+        routerLink="/topics">
+
+        Thèmes
+
+    </button>
+
+    <button
+        mat-menu-item
+        routerLink="/profile">
+
+        <mat-icon>account_circle</mat-icon>
+
+        <span>Profil</span>
+
+    </button>
+
+</mat-menu>

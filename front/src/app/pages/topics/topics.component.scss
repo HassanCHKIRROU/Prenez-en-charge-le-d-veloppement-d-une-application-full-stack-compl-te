@@ -1,115 +1,241 @@
+/*====================================================
+                TOPICS - FIGMA DESKTOP (Comme Feed)
+====================================================*/
+
 .topics-container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.topics-header {
-  margin-bottom: 32px;
-
-  h1 {
-    font-size: 28px;
-    color: #1976d2;
-    margin-bottom: 8px;
-  }
-
-  p {
-    color: #666;
-    font-size: 16px;
-  }
+/*======================================
+        Cadre de la page
+======================================*/
+.page-content {
+  width: 835px;
+  min-height: 584px;
+  margin: -1px auto 0;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  padding: 30px;
+  overflow: hidden;
 }
 
-.topics-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.topic-card {
-  background: white;
-  border-radius: 12px;
-  padding: 20px 24px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+/*======================================
+            En-tête
+======================================*/
+.topics-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: box-shadow 0.2s;
-
-  &:hover {
-    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
-  }
-
-  .topic-info {
-    flex: 1;
-
-    h2 {
-      font-size: 18px;
-      color: #333;
-      margin: 0 0 4px 0;
-    }
-
-    p {
-      font-size: 14px;
-      color: #666;
-      margin: 0;
-      line-height: 1.5;
-    }
-  }
-
-  .topic-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
-    margin-left: 16px;
-
-    button {
-      min-width: 140px;
-      padding: 8px 16px;
-    }
-
-    .subscribed-badge {
-      color: #2e7d32;
-      font-size: 14px;
-      font-weight: 500;
-    }
-  }
+  margin-bottom: 35px;
 }
 
+.topics-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+/*======================================
+            Grille Thèmes
+======================================*/
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 359px);
+  justify-content: center;
+  column-gap: 22px;
+  row-gap: 22px;
+}
+
+/*======================================
+             Carte Thème
+======================================*/
+.topic-card {
+  width: 359px;
+  height: 180px;
+  background: #F5F5F5;
+  border-radius: 8px;
+  padding: 18px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.topic-card h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+}
+
+.topic-info {
+  display: flex;
+  gap: 40px;
+  margin: 12px 0;
+}
+
+.topic-info span {
+  font-size: 14px;
+  color: #000;
+}
+
+.topic-content {
+  font-size: 14px;
+  line-height: 20px;
+  color: #000;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+.topic-actions {
+  margin-top: 8px;
+}
+
+/*======================================
+            Bouton S'abonner
+======================================*/
+.subscribe-button {
+  width: 153px;
+  height: 40px;
+  border-radius: 8px;
+  background: #7763C5 !important;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+.subscribe-button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/*======================================
+            Badge Déjà abonné
+======================================*/
+.subscribed-badge {
+  display: inline-block;
+  width: 153px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 8px;
+  background: #9CA3AF;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/*======================================
+            Chargement / Erreur / Vide
+======================================*/
 .loading {
   text-align: center;
-  padding: 40px;
-  color: #666;
+  padding: 60px;
 }
 
 .error {
-  background: #fde8e8;
-  color: #d32f2f;
-  padding: 12px 16px;
+  background: #FDECEC;
+  color: #C62828;
+  padding: 15px;
   border-radius: 8px;
-  margin-bottom: 16px;
 }
 
 .empty {
+  grid-column: 1 / -1;
   text-align: center;
-  padding: 40px;
-  color: #888;
+  padding: 80px 20px;
 }
 
-// 📱 Responsive
-@media (max-width: 768px) {
-  .topic-card {
+.empty p {
+  margin: 10px 0;
+}
+
+/*====================================================
+              RESPONSIVE TABLETTE & MOBILE
+====================================================*/
+@media screen and (max-width: 768px) {
+  .page-content {
+    width: 294px;
+    min-height: 584px;
+    margin: 0 auto;
+    padding: 15px;
+    border: 1px solid #000;
+    background: #FFF;
+    box-sizing: border-box;
+  }
+
+  .topics-toolbar {
+    display: flex;
     flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
+  }
 
-    .topic-actions {
-      margin-left: 0;
-      justify-content: flex-start;
+  .topics-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 auto;
+  }
 
-      button {
-        min-width: 100%;
-      }
-    }
+  .topic-card {
+    width: 265px;
+    height: 132px;
+    margin: 0 auto;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  .topic-card h2 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    line-height: 18px;
+  }
+
+  .topic-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 0;
+  }
+
+  .topic-info span {
+    font-size: 12px;
+  }
+
+  .topic-content {
+    font-size: 12px;
+    line-height: 16px;
+    height: 48px;
+    overflow: hidden;
+  }
+
+  .subscribe-button {
+    width: 100%;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .subscribed-badge {
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    font-size: 12px;
+  }
+
+  .empty {
+    width: 100%;
+    padding: 40px 15px;
   }
 }

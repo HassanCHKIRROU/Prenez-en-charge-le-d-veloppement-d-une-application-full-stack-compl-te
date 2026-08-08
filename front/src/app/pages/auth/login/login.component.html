@@ -1,39 +1,91 @@
 <div class="login-container">
-  <div class="login-card">
-    <h1>MDD</h1>
-    <h2>Se connecter</h2>
 
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="outline">
-        <mat-label>Email ou nom d'utilisateur</mat-label>
-        <input matInput formControlName="usernameOrEmail">
-        <mat-error *ngIf="loginForm.get('usernameOrEmail')?.hasError('required')">
-          Ce champ est requis
-        </mat-error>
-      </mat-form-field>
+  <!-- Header -->
+  <header class="header">
+    <img
+      src="/assets/logo_p6.png"
+      alt="MDD"
+      class="header-logo"
+      routerLink="/">
+  </header>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Mot de passe</mat-label>
-        <input matInput type="password" formControlName="password">
-        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
-          Ce champ est requis
-        </mat-error>
-        <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
-          Minimum 8 caractères
-        </mat-error>
-      </mat-form-field>
+  <!-- Contenu -->
+  <div class="login-content">
 
-      <div *ngIf="errorMessage" class="error-message">
-        {{ errorMessage }}
-      </div>
+    <!-- Flèche retour -->
+    <button
+      mat-icon-button
+      class="back-button"
+      routerLink="/">
 
-      <button mat-raised-button color="primary" type="submit" [disabled]="loading">
-        {{ loading ? 'Connexion...' : 'Se connecter' }}
-      </button>
+      <mat-icon>arrow_back</mat-icon>
 
-      <p class="register-link">
-        Pas encore de compte ? <a routerLink="/register">S'inscrire</a>
-      </p>
-    </form>
+    </button>
+
+    <!-- Formulaire -->
+    <div class="login-card">
+
+      <h2>Se connecter</h2>
+
+      <form [formGroup]="loginForm"
+            (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="outline">
+
+          <mat-label>Email ou nom d'utilisateur</mat-label>
+
+          <input
+            matInput
+            formControlName="usernameOrEmail">
+
+          <mat-error *ngIf="loginForm.get('usernameOrEmail')?.hasError('required')">
+            Ce champ est requis
+          </mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+
+          <mat-label>Mot de passe</mat-label>
+
+          <input
+            matInput
+            type="password"
+            formControlName="password">
+
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            Ce champ est requis
+          </mat-error>
+
+          <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+            Minimum 8 caractères
+          </mat-error>
+
+        </mat-form-field>
+
+        <div
+          *ngIf="errorMessage"
+          class="error-message">
+
+          {{ errorMessage }}
+
+        </div>
+
+        <button
+          mat-raised-button
+          color="primary"
+          class="login-button"
+          type="submit"
+          [disabled]="loading">
+
+          {{ loading ? 'Connexion...' : 'Se connecter' }}
+
+        </button>
+
+      </form>
+
+    </div>
+
   </div>
+
 </div>

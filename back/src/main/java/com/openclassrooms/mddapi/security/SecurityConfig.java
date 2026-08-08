@@ -41,13 +41,15 @@ public class SecurityConfig {
                         .requestMatchers("/auth/register", "/auth/login").permitAll()
                         .requestMatchers("/topics/**", "/subscriptions/**", "/user/**", "/articles/**").authenticated()
                         .anyRequest().authenticated()
-                		.anyRequest().permitAll()
-                );
-               // .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                		
+                )
+               .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
 
+    
+    
     
     
     
@@ -58,11 +60,15 @@ public class SecurityConfig {
 
     
     
+    
+    
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+  
+    
     
    
     @Bean

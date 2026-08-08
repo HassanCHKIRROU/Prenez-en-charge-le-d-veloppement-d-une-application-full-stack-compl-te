@@ -1,51 +1,113 @@
+
+
+
+<div class="page-content">
+
 <div class="feed-container">
-  <div class="feed-header">
-    <h1>Articles</h1>
-    <div class="header-actions">
-      <div class="sort-options">
-        <button mat-button 
-                [class.active]="sortOrder === 'desc'" 
-                (click)="changeSort('desc')">
-          Plus récent
-        </button>
-        <button mat-button 
-                [class.active]="sortOrder === 'asc'" 
-                (click)="changeSort('asc')">
-          Plus ancien
-        </button>
-      </div>
-      <button mat-raised-button color="primary" (click)="goToCreateArticle()">
-        + Créer un article
-      </button>
+
+  <!-- Barre supérieure -->
+  <div class="feed-toolbar">
+
+    <button
+      mat-raised-button
+      color="primary"
+      class="create-button"
+      (click)="goToCreateArticle()">
+
+      Créer un article
+
+    </button>
+
+    <div
+      class="sort-container"
+      (click)="changeSort(sortOrder === 'desc' ? 'asc' : 'desc')">
+
+      <span>Trier par</span>
+
+      <mat-icon>
+        {{ sortOrder === 'desc' ? 'south' : 'north' }}
+      </mat-icon>
+
     </div>
+
   </div>
 
-  <div *ngIf="loading" class="loading">Chargement...</div>
-  <div *ngIf="error" class="error">{{ error }}</div>
+  <div *ngIf="loading" class="loading">
 
-  <div *ngIf="!loading && !error" class="articles-list">
-    <div *ngIf="articles.length === 0" class="empty">
+    Chargement...
+
+  </div>
+
+  <div *ngIf="error" class="error">
+
+    {{ error }}
+
+  </div>
+
+  <div
+    *ngIf="!loading && !error"
+    class="articles-grid">
+
+    <div
+      *ngIf="articles.length === 0"
+      class="empty">
+
       <p>Aucun article dans votre fil.</p>
+
       <p>Abonnez-vous à des thèmes pour voir des articles.</p>
-      <button mat-raised-button color="primary" routerLink="/topics">
+
+      <button
+        mat-raised-button
+        color="primary"
+        routerLink="/topics">
+
         Voir les thèmes
+
       </button>
+
     </div>
 
-    <!-- Carte article cliquable -->
-    <div *ngFor="let article of articles" 
-         class="article-card" 
-         (click)="goToArticle(article.id)">
-      <div class="article-header">
-        <h2>{{ article.title }}</h2>
-        <span class="topic-badge">{{ article.topicTitle }}</span>
+    
+    <!-- CARTE ARTICLE -->
+    
+
+    <div
+      *ngFor="let article of articles"
+      class="article-card"
+      (click)="goToArticle(article.id)">
+
+      <h2>
+
+        {{ article.title }}
+
+      </h2>
+
+      <div class="article-info">
+
+        <span>
+
+          {{ article.createdAt | date:'dd/MM/yyyy' }}
+
+        </span>
+
+        <span>
+
+          {{ article.authorUsername }}
+
+        </span>
+
       </div>
-      <p class="article-meta">
-        Par {{ article.authorUsername }} • 
-        {{ article.createdAt | date:'dd/MM/yyyy HH:mm' }}
-      </p>
-      <p class="article-content">{{ article.content }}</p>
-      <button mat-button color="primary" class="read-more">Lire la suite →</button>
+
+      <div class="article-content">
+
+        {{ article.content }}
+
+      </div>
+
     </div>
+
   </div>
+
 </div>
+</div>
+    

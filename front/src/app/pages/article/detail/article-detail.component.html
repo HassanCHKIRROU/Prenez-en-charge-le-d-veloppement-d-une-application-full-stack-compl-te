@@ -1,63 +1,74 @@
-<div class="article-detail-container">
-  <button mat-button (click)="goBack()" class="back-btn">
-    ← Retour au fil
-  </button>
+<div class="page-content">
+  <div class="article-detail-container">
 
-  <div *ngIf="loading" class="loading">Chargement...</div>
-  <div *ngIf="error" class="error">{{ error }}</div>
-
-  <div *ngIf="article && !loading" class="article-card">
-    <!-- En-tête article -->
-    <div class="article-header">
-      <h1>{{ article.title }}</h1>
-      <span class="topic-badge">{{ article.topic.title }}</span>
+    <!-- En-tête avec flèche et titre -->
+    <div class="detail-header">
+      <button mat-button (click)="goBack()" class="back-btn">
+        <span class="arrow-icon"></span>
+      </button>
+      <h1 class="detail-title">{{ article.title }}</h1>
     </div>
 
-    <!-- Métadonnées -->
-    <div class="article-meta">
-      <span>Par <strong>{{ article.author.username }}</strong></span>
-      <span>•</span>
-      <span>{{ article.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
-    </div>
+    <div *ngIf="loading" class="loading">Chargement...</div>
+    <div *ngIf="error" class="error">{{ error }}</div>
 
-    <!-- Contenu -->
-    <div class="article-content">
-      <p>{{ article.content }}</p>
-    </div>
+    <div *ngIf="article && !loading" class="article-wrapper">
 
-    <!-- Section Commentaires -->
-    <div class="comments-section">
-      <h2>Commentaires ({{ article.comments.length || 0 }})</h2>
-
-      <div *ngIf="article.comments.length === 0" class="no-comments">
-        <p>Aucun commentaire pour le moment.</p>
+      <!-- Métadonnées : Date - Auteur - Thème -->
+      <div class="article-meta">
+        <span class="meta-date">{{ article.createdAt | date:'dd/MM/yyyy' }}</span>
+        <span class="meta-author">{{ article.author.username }}</span>
+        <span class="meta-topic">{{ article.topic.title }}</span>
       </div>
 
-      <div *ngFor="let comment of article.comments" class="comment-item">
-        <div class="comment-header">
-          <strong>{{ comment.authorUsername }}</strong>
-          <span class="comment-date">{{ comment.createdAt | date:'dd/MM/yyyy HH:mm' }}</span>
+      <!-- Contenu de l'article -->
+      <div class="article-content">
+        <p>{{ article.content }}</p>
+      </div>
+
+      <!-- Ligne de séparation horizontale -->
+      <div class="separator-line"></div>
+
+      <!-- Section Commentaires -->
+      <div class="comments-section">
+        <h2 class="comments-title">Commentaires</h2>
+
+        <div *ngIf="article.comments.length === 0" class="no-comments">
+          <p>Aucun commentaire pour le moment.</p>
         </div>
-        <p class="comment-content">{{ comment.content }}</p>
+
+        <!-- Bulle de commentaire -->
+        <div *ngFor="let comment of article.comments" class="comment-item">
+          <div class="comment-username">{{ comment.authorUsername }}</div>
+          <div class="comment-bubble">
+            <p class="comment-content">{{ comment.content }}</p>
+          </div>
+        </div>
       </div>
 
       <!-- Ajouter un commentaire -->
-      <div class="add-comment">
-        <h3>Ajouter un commentaire</h3>
-        <form [formGroup]="commentForm" (ngSubmit)="onSubmitComment()">
-          <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Écrivez ici votre commentaire</mat-label>
-            <textarea matInput formControlName="content" rows="3"></textarea>
-            <mat-error *ngIf="commentForm.get('content')?.hasError('required')">
-              Le commentaire est requis
-            </mat-error>
-          </mat-form-field>
-
-          <button mat-raised-button color="primary" type="submit" [disabled]="submitting || commentForm.invalid">
-            {{ submitting ? 'Envoi...' : 'Publier le commentaire' }}
+      <div class="add-comment-wrapper">
+        <form [formGroup]="commentForm" (ngSubmit)="onSubmitComment()" class="comment-form">
+          <div class="input-container">
+            <mat-form-field appearance="fill" class="comment-input-field">
+              <mat-label>Écrivez ici votre commentaire</mat-label>
+              <textarea matInput formControlName="content" rows="3"></textarea>
+              <mat-error *ngIf="commentForm.get('content')?.hasError('required')">
+                Le commentaire est requis
+              </mat-error>
+            </mat-form-field>
+          </div>
+          
+          <button type="submit" class="send-icon-btn" [disabled]="submitting || commentForm.invalid">
+            <!-- Icône avion en papier -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 24 24" fill="none" stroke="#7763C5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
           </button>
         </form>
       </div>
+
     </div>
   </div>
 </div>

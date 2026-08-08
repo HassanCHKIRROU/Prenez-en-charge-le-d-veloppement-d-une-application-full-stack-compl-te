@@ -1,160 +1,438 @@
+/*
+DESKTOP
+*/
+
 .feed-container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
+
+  width: 100%;
+  box-sizing: border-box;
+
 }
 
-.feed-header {
+/*
+ Cadre de la page
+*/
+
+.page-content {
+
+  width: 835px;
+  min-height: 584px;
+
+  margin: -1px auto 0;
+
+  background: #FFFFFF;
+
+  border: 1px solid #000000;
+
+  box-sizing: border-box;
+
+  padding: 30px;
+
+  overflow: hidden;
+
+}
+
+/* Barre supérieure
+*/
+
+.feed-toolbar {
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 24px;
 
-  h1 {
-    font-size: 28px;
-    color: #1976d2;
-    margin: 0;
-  }
+  margin-bottom: 35px;
 
-  .header-actions {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .sort-options {
-    display: flex;
-    gap: 4px;
-    background: #f5f5f5;
-    border-radius: 8px;
-    padding: 4px;
-
-    button {
-      border-radius: 6px;
-      font-size: 14px;
-      padding: 6px 16px;
-      color: #666;
-
-      .sort-label {
-        font-weight: 500;
-      }
-
-      &.active {
-        background: #1976d2;
-        color: white;
-
-        .sort-label {
-          color: white;
-        }
-      }
-    }
-  }
 }
 
-.articles-list {
+/*
+ Bouton créer article
+*/
+
+.create-button {
+
+  width: 153px;
+  height: 40px;
+
+  border-radius: 8px;
+
+  background: #7763C5 !important;
+  color: #FFFFFF;
+
+  font-size: 14px;
+  font-weight: 500;
+
+}
+
+/*
+ Trier
+*/
+
+.sort-container {
+
   display: flex;
-  flex-direction: column;
-  gap: 16px;
+  align-items: center;
+
+  gap: 8px;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  color: #000;
+
 }
+
+.sort-container mat-icon {
+
+  width: 18px;
+  height: 18px;
+
+  font-size: 18px;
+
+}
+
+/*
+Grille Articles
+*/
+
+.articles-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 359px);
+
+  justify-content: center;
+
+  column-gap: 22px;
+  row-gap: 22px;
+
+}
+
+/*
+Carte Article
+*/
 
 .article-card {
-  background: white;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+
+  width: 359px;
+  height: 180px;
+
+  background: #F5F5F5;
+
+  border-radius: 8px;
+
+  padding: 18px;
+
+  box-sizing: border-box;
+
   cursor: pointer;
-  transition: box-shadow 0.2s, transform 0.1s;
 
-  &:hover {
-    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
-    transform: translateY(-2px);
-  }
+  transition: .2s;
 
-  .article-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 8px;
-
-    h2 {
-      font-size: 20px;
-      color: #333;
-      margin: 0;
-    }
-
-    .topic-badge {
-      background: #e3f2fd;
-      color: #1976d2;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-  }
-
-  .article-meta {
-    color: #888;
-    font-size: 14px;
-    margin: 0 0 12px 0;
-  }
-
-  .article-content {
-    color: #555;
-    line-height: 1.6;
-    margin: 0 0 12px 0;
-  }
-
-  .read-more {
-    padding: 0;
-    font-weight: 500;
-  }
 }
+
+.article-card:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 4px 10px rgba(0,0,0,.12);
+
+}
+
+/*
+ Titre
+*/
+
+.article-card h2 {
+
+  margin: 0;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  color: #000;
+
+}
+
+/*
+ Date + Auteur
+*/
+
+.article-info {
+
+  display: flex;
+
+  gap: 40px;
+
+  margin: 16px 0;
+
+}
+
+.article-info span {
+
+  font-size: 14px;
+
+  color: #000;
+
+}
+
+/*
+ Contenu
+*/
+
+.article-content {
+
+  font-size: 14px;
+
+  line-height: 20px;
+
+  color: #000;
+
+  display: -webkit-box;
+  
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+
+}
+
+/* Chargement
+*/
 
 .loading {
+
   text-align: center;
+
   padding: 60px;
-  color: #666;
+
 }
+
+/*
+Erreur
+*/
 
 .error {
-  background: #fde8e8;
-  color: #d32f2f;
-  padding: 12px 16px;
+
+  background: #FDECEC;
+
+  color: #C62828;
+
+  padding: 15px;
+
   border-radius: 8px;
-  margin-bottom: 16px;
+
 }
+
+/*
+Aucun article
+*/
 
 .empty {
+
+  grid-column: 1 / -1;
+
   text-align: center;
-  padding: 60px 20px;
-  color: #888;
 
-  p {
-    margin: 8px 0;
-  }
+  padding: 80px 20px;
 
-  button {
-    margin-top: 16px;
-  }
 }
 
-@media (max-width: 768px) {
-  .feed-header {
-    flex-direction: column;
-    align-items: stretch;
+.empty p {
 
-    .header-actions {
-      flex-direction: column;
-      align-items: stretch;
-    }
+  margin: 10px 0;
+
+}
+
+.empty button {
+
+  margin-top: 25px;
+
+}
+
+
+
+
+
+/*
+RESPONSIVE TABLETTE & MOBILE
+*/
+
+@media screen and (max-width: 768px) {
+
+  /* Cadre général */
+
+  .page-content {
+
+  width:294px;
+
+  min-height:584px;
+
+  margin:0 auto;
+
+  padding:15px;
+
+  border:1px solid #000;
+
+  background:#FFF;
+
+  box-sizing:border-box;
+
+}
+  /* Barre supérieure */
+
+  .feed-toolbar {
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+
   }
 
-  .article-card .article-header {
-    flex-direction: column;
+  /* Bouton créer */
+
+  .create-button {
+
+    width: 153px;
+    height: 40px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    margin: 0 auto;
+
   }
+
+  /* Trier */
+
+  .sort-container {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+  }
+
+  /* Liste */
+
+  .articles-grid {
+
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 16px;
+
+  margin: 0 auto;
+
+}
+
+  /* Carte */
+
+  .article-card {
+
+  width: 265px;
+
+  height: 132px;
+
+  margin: 0 auto;
+
+  padding: 12px;
+
+  box-sizing: border-box;
+
+}
+
+  /* Titre */
+
+  .article-card h2 {
+
+    font-size: 16px;
+
+    margin-bottom: 8px;
+
+    line-height: 18px;
+
+  }
+
+  /* Date + Auteur */
+
+  .article-info {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    gap: 0;
+
+  }
+
+  .article-info span {
+
+    font-size: 12px;
+
+  }
+
+  /* Contenu */
+
+  .article-content {
+
+    font-size: 12px;
+
+    line-height: 16px;
+
+    height: 48px;
+
+    overflow: hidden;
+
+  }
+
+  /* Aucun article */
+
+  .empty {
+
+    width: 100%;
+
+    padding: 40px 15px;
+
+  }
+
+}
+.feed-container {
+
+  width:100%;
+
+  margin:0;
+
+  padding:0;
+
+  border:none;
+
+  background:transparent;
+
 }

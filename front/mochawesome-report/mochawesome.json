@@ -1,0 +1,176 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-07T01:16:13.407Z",
+    "end": "2026-08-07T01:16:19.775Z",
+    "duration": 6368,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d10713e1-67e3-4b6e-b9ca-2d9454e0bc75",
+      "title": "",
+      "fullFile": "cypress\\e2e\\topics.cy.ts",
+      "file": "cypress\\e2e\\topics.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2aff7678-88db-470b-b18e-61caa4c404bc",
+          "title": "Gestion des thèmes",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should display topics page",
+              "fullTitle": "Gestion des thèmes should display topics page",
+              "timedOut": null,
+              "duration": 1911,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Thèmes').should('be.visible');",
+              "err": {},
+              "uuid": "8b33c188-84ad-43d0-990f-85fc40283e08",
+              "parentUUID": "2aff7678-88db-470b-b18e-61caa4c404bc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display list of topics",
+              "fullTitle": "Gestion des thèmes should display list of topics",
+              "timedOut": null,
+              "duration": 1079,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.topic-card').should('exist');",
+              "err": {},
+              "uuid": "a44d4d25-38a6-41a2-8a27-d8415a7aaf97",
+              "parentUUID": "2aff7678-88db-470b-b18e-61caa4c404bc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display topic title and description",
+              "fullTitle": "Gestion des thèmes should display topic title and description",
+              "timedOut": null,
+              "duration": 1011,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.topic-card').first().within(() => {\n    cy.get('h2, h3, .topic-title').should('be.visible');\n    cy.get('p, div, .topic-description').should('be.visible');\n});",
+              "err": {},
+              "uuid": "d9100479-b27f-47f6-9410-8601dbc05216",
+              "parentUUID": "2aff7678-88db-470b-b18e-61caa4c404bc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should subscribe to a topic",
+              "fullTitle": "Gestion des thèmes should subscribe to a topic",
+              "timedOut": null,
+              "duration": 1054,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('button', 'S\\'abonner').first().click();\ncy.contains('Déjà abonné').should('be.visible');",
+              "err": {},
+              "uuid": "50e89d9c-6a1c-46a5-892e-c997606c1a43",
+              "parentUUID": "2aff7678-88db-470b-b18e-61caa4c404bc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should navigate back to feed",
+              "fullTitle": "Gestion des thèmes should navigate back to feed",
+              "timedOut": null,
+              "duration": 1097,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Articles').click();\ncy.url().should('include', '/feed');",
+              "err": {},
+              "uuid": "0116a736-34bb-42b8-a9f7-c96a43044756",
+              "parentUUID": "2aff7678-88db-470b-b18e-61caa4c404bc",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8b33c188-84ad-43d0-990f-85fc40283e08",
+            "a44d4d25-38a6-41a2-8a27-d8415a7aaf97",
+            "d9100479-b27f-47f6-9410-8601dbc05216",
+            "50e89d9c-6a1c-46a5-892e-c997606c1a43",
+            "0116a736-34bb-42b8-a9f7-c96a43044756"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6152,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.0.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.3.2"
+    }
+  }
+}

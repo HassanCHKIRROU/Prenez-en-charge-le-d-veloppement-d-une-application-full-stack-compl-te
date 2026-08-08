@@ -1,45 +1,56 @@
-<div class="topics-container">
-  <div class="topics-header">
-    <h1>Thèmes</h1>
-    <p>Abonnez-vous aux thèmes qui vous intéressent</p>
-  </div>
+<div class="page-content">
+  <div class="topics-container">
 
-  <!-- Chargement -->
-  <div *ngIf="loading" class="loading">Chargement des thèmes...</div>
-
-  <!-- Erreur -->
-  <div *ngIf="error" class="error">{{ error }}</div>
-
-  <!-- Liste des thèmes -->
-  <div *ngIf="!loading && !error" class="topics-list">
-    <div *ngFor="let topic of topics" class="topic-card">
-      <div class="topic-info">
-        <h2>{{ topic.title }}</h2>
-        <p>{{ topic.description }}</p>
-      </div>
-      <div class="topic-actions">
-
-       
-        
-        <button
-          *ngIf="!topic.subscribed"
-          mat-raised-button
-          color="primary"
-          (click)="subscribe(topic.id)"
-          [disabled]="loading">
-          S'abonner
-        </button>
-        <!-- Si déjà abonné, afficher "Déjà abonné" -->
-        <span *ngIf="topic.subscribed" class="subscribed-badge">
-          ✓ Déjà abonné
-        </span>
-
-      </div>
+    <!-- En-tête -->
+    <div class="topics-toolbar">
+      <h1 class="topics-title">Thèmes</h1>
     </div>
-  </div>
 
-  <!-- Message si aucun thème -->
-  <div *ngIf="!loading && topics.length === 0" class="empty">
-    Aucun thème disponible.
+    <!-- Chargement -->
+    <div *ngIf="loading" class="loading">Chargement des thèmes...</div>
+
+    <!-- Erreur -->
+    <div *ngIf="error" class="error">{{ error }}</div>
+
+    <!-- Grille des thèmes -->
+    <div *ngIf="!loading && !error" class="topics-grid">
+
+      <!-- Message vide -->
+      <div *ngIf="topics.length === 0" class="empty">
+        <p>Aucun thème disponible.</p>
+        <p>Revenez plus tard.</p>
+      </div>
+
+      <!-- Carte Thème -->
+      <div *ngFor="let topic of topics" class="topic-card">
+        <h2>{{ topic.title }}</h2>
+
+        <!--<div class="topic-info">
+          <span>Thème</span>
+        </div>-->
+        
+
+        <div class="topic-content">
+          {{ topic.description }}
+        </div>
+
+        <div class="topic-actions">
+          <button
+            *ngIf="!topic.subscribed"
+            mat-raised-button
+            class="subscribe-button"
+            (click)="subscribe(topic.id)"
+            [disabled]="loading">
+            S'abonner
+          </button>
+
+          <span *ngIf="topic.subscribed" class="subscribed-badge">
+            Déjà abonné
+          </span>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </div>

@@ -1,36 +1,43 @@
-<div class="article-create-container">
-  <div class="header-nav">
-    <span class="logo">MDD</span>
-    <nav>
-      <a routerLink="/feed" routerLinkActive="active">Articles</a>
-      <a routerLink="/topics" routerLinkActive="active">Thème</a>
-    </nav>
-  </div>
+<div class="page-content">
+  <div class="article-create-container">
 
-  <div class="create-card">
-    <h1>Créer un nouvel article</h1>
+    <!-- En-tête : Flèche de retour + Titre centré -->
+    <div class="create-header">
+      <button mat-button (click)="goBack()" class="back-btn">
+        <span class="arrow-icon"></span>
+      </button>
+      <h1 class="create-title">Créer un nouvel article</h1>
+    </div>
 
     <div *ngIf="error" class="error">{{ error }}</div>
 
-    <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="articleForm" (ngSubmit)="onSubmit()" class="create-form">
+
+      <!-- Champ : Sélectionner un thème -->
       <div class="form-field">
-        <label>Sélectionner un topic</label>
-        <input matInput formControlName="topicId" placeholder="Sélectionner un topic">
+        <label>Sélectionner un thème</label>
+        <input matInput formControlName="topicId" placeholder="Sélectionner un thème">
       </div>
 
+      <!-- Champ : Titre de l'article -->
       <div class="form-field">
         <label>Titre de l'article</label>
         <input matInput formControlName="title" placeholder="Titre de l'article">
       </div>
 
-      <div class="form-field">
+      <!-- Champ : Contenu de l'article -->
+      <div class="form-field field-content">
         <label>Contenu de l'article</label>
         <textarea matInput formControlName="content" rows="6" placeholder="Contenu de l'article"></textarea>
       </div>
 
-      <button mat-raised-button color="primary" type="submit" class="btn-create" [disabled]="submitting || articleForm.invalid">
-        {{ submitting ? 'Création en cours...' : 'Créer' }}
-      </button>
+      <!-- Bouton Créer -->
+      <div class="btn-wrapper">
+        <button mat-raised-button type="submit" class="btn-create" [disabled]="submitting || articleForm.invalid">
+          {{ submitting ? 'Création en cours...' : 'Créer' }}
+        </button>
+      </div>
+
     </form>
   </div>
 </div>

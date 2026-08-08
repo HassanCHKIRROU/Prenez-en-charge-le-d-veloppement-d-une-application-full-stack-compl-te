@@ -2,3 +2,42 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mobile-menu{
+
+    min-width:184px !important;
+
+}
+
+.mobile-menu .mat-mdc-menu-content{
+
+    padding:20px 0;
+
+}
+
+.mobile-menu .mat-mdc-menu-item{
+
+    height:46px;
+
+    font-size:20px;
+
+    color:#000;
+
+}
+
+.mobile-menu .logout-btn{
+
+    color:#A40F0F !important;
+
+    font-weight:700;
+
+}
+
+.mobile-menu .mat-icon{
+
+    color:#D9D9D9;
+
+    margin-right:10px;
+
+}

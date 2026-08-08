@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-08T17:15:39.106Z",
+    "end": "2026-08-08T17:15:41.323Z",
+    "duration": 2217,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f82a37bf-ea19-4ec2-b2e6-e03f8324b9bd",
+      "title": "",
+      "fullFile": "cypress\\e2e\\home.cy.ts",
+      "file": "cypress\\e2e\\home.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a8dfb80f-114c-4b2a-bdd3-e43cca04cb9d",
+          "title": "Page d'accueil",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should display the home page",
+              "fullTitle": "Page d'accueil should display the home page",
+              "timedOut": null,
+              "duration": 1144,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Se connecter').should('be.visible');\ncy.contains(\"S'inscrire\").should('be.visible');",
+              "err": {},
+              "uuid": "7970fe52-fce0-4a5c-b083-cced4f899c8b",
+              "parentUUID": "a8dfb80f-114c-4b2a-bdd3-e43cca04cb9d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should navigate to login",
+              "fullTitle": "Page d'accueil should navigate to login",
+              "timedOut": null,
+              "duration": 334,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Se connecter').click();\ncy.url().should('include', '/login');",
+              "err": {},
+              "uuid": "255211df-d9cb-47a1-a094-306745976648",
+              "parentUUID": "a8dfb80f-114c-4b2a-bdd3-e43cca04cb9d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should navigate to register",
+              "fullTitle": "Page d'accueil should navigate to register",
+              "timedOut": null,
+              "duration": 279,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains(\"S'inscrire\").click();\ncy.url().should('include', '/register');",
+              "err": {},
+              "uuid": "bc5ccf14-39e3-48d6-a4e3-9c22d5eb5b0f",
+              "parentUUID": "a8dfb80f-114c-4b2a-bdd3-e43cca04cb9d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7970fe52-fce0-4a5c-b083-cced4f899c8b",
+            "255211df-d9cb-47a1-a094-306745976648",
+            "bc5ccf14-39e3-48d6-a4e3-9c22d5eb5b0f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1757,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

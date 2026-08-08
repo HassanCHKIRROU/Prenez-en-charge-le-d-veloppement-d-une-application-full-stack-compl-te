@@ -99,7 +99,7 @@ export class ArticleCreateComponent implements OnInit {
 
 
 
-  cancel(): void {
+  goBack(): void {
     this.router.navigate(['/feed']);
   }
 }

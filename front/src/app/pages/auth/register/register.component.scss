@@ -1,0 +1,331 @@
+/* 
+   Ecran Inscription 
+ */
+
+.register-container{
+
+    width:835px;
+    height:584px;
+
+    margin:auto;
+
+    border:1px solid #000;
+
+    background:#FFFFFF;
+
+    display:flex;
+    flex-direction:column;
+
+    box-sizing:border-box;
+
+}
+
+/* 
+HEADER
+ */
+
+.header{
+
+    width:100%;
+    height:94px;
+
+    border-bottom:1px solid #000;
+
+    display:flex;
+    align-items:center;
+
+    padding-left:22px;
+
+    box-sizing:border-box;
+
+    background:#FFFFFF;
+
+}
+
+.header-logo{
+
+    width:140px;
+    height:81px;
+
+    object-fit:contain;
+
+    cursor:pointer;
+
+}
+
+/* 
+CONTENU
+ */
+
+.register-content{
+
+    flex:1;
+
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+/* 
+FLECHE RETOUR
+ */
+
+.back-button{
+
+    position:absolute;
+
+    left:32px;
+    top:26px;
+
+}
+
+.back-button mat-icon{
+
+    font-size:38px;
+    width:38px;
+    height:38px;
+
+}
+
+/* 
+ CARTE
+ */
+
+.register-card{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+}
+
+/* 
+TITRE
+ */
+
+.register-card h2{
+
+    margin:0 0 35px;
+
+    font-size:32px;
+    font-weight:500;
+
+}
+
+/* 
+FORMULAIRE
+ */
+
+form{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+}
+
+mat-form-field{
+
+    width:250px;
+    margin-bottom:18px;
+
+}
+
+/* hauteur Figma */
+
+::ng-deep .mat-mdc-text-field-wrapper{
+
+    height:50px;
+
+}
+
+::ng-deep .mat-mdc-form-field-flex{
+
+    height:50px;
+    align-items:center;
+
+}
+
+/* 
+ BOUTON
+*/
+
+.register-button{
+
+    width:128px;
+    height:40px;
+
+    margin-top:15px;
+
+    border-radius:8px;
+
+}
+
+/* 
+ ERREUR
+ */
+
+.error-message{
+
+    color:#D32F2F;
+
+    text-align:center;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+/* 
+TABLETTE
+ */
+
+@media screen and (max-width: 900px) {
+
+  .register-container {
+    width: 95%;
+    height: auto;
+    min-height: 584px;
+    margin: 20px auto;
+  }
+
+  .header {
+    height: 88px;
+    padding-left: 18px;
+  }
+
+  .header-logo {
+    width: 125px;
+    height: auto;
+  }
+
+  .register-content {
+    padding: 40px 20px;
+  }
+
+  .back-button {
+    top: 20px;
+    left: 20px;
+  }
+
+  .back-button mat-icon {
+    font-size: 34px;
+    width: 34px;
+    height: 34px;
+  }
+
+  .register-card h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+
+  mat-form-field {
+    width: 300px;
+  }
+
+  .register-button {
+    width: 140px;
+  }
+}
+
+
+/* 
+MOBILE
+ */
+
+@media screen and (max-width: 600px) {
+
+  .register-container {
+    width: 100%;
+    min-height: 100vh;
+    border: none;
+    margin: 0;
+  }
+
+  .header {
+    height: 80px;
+    padding-left: 16px;
+  }
+
+  .header-logo {
+    width: 110px;
+    height: auto;
+  }
+
+  .register-content {
+    padding: 35px 20px;
+  }
+
+  .back-button {
+    top: 18px;
+    left: 12px;
+  }
+
+  .back-button mat-icon {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .register-card {
+    width: 100%;
+  }
+
+  .register-card h2 {
+    font-size: 28px;
+    margin-bottom: 28px;
+  }
+
+  form {
+    width: 100%;
+    align-items: center;
+  }
+
+  mat-form-field {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .register-button {
+    width: 160px;
+    margin-top: 20px;
+  }
+
+  .error-message {
+    width: 90%;
+    text-align: center;
+  }
+}
+
+
+/* 
+  SMARTPHONES : RESPONSIVE
+ */
+
+@media screen and (max-width: 360px) {
+
+  .header {
+    height: 72px;
+  }
+
+  .header-logo {
+    width: 95px;
+  }
+
+  .register-card h2 {
+    font-size: 24px;
+  }
+
+  mat-form-field {
+    max-width: 280px;
+  }
+
+  .register-button {
+    width: 140px;
+  }
+}

@@ -25,6 +25,8 @@ import { ArticleDetailComponent } from './pages/article/detail/article-detail.co
 import { MatOptionModule } from '@angular/material/core';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -56,7 +58,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatIconModule,
     MatOptionModule,
     MatSnackBarModule,
-    MatToolbarModule
+    MatSidenavModule, //sideBar pour le responsive mobile
+    MatToolbarModule,
+    MatMenuModule
   ],
 
 

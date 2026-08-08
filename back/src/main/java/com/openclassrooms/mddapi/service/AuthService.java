@@ -70,7 +70,7 @@ public class AuthService {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = tokenProvider.generateToken(authentication);
 
-        // Retourner la réponse sans builder
+        // Retourner la réponse 
         AuthResponse response = new AuthResponse();
         response.setToken(token);
         response.setId(user.getId());

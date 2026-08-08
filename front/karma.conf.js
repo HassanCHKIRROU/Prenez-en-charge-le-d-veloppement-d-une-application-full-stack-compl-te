@@ -28,11 +28,13 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, './coverage/front'),
       subdir: '.',
       reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
-      ]
+    { type: 'html' },
+    { type: 'lcovonly' },
+    { type: 'text-summary' },
+    { type: 'cobertura' }
+  ]
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['progress', 'kjhtml', 'coverage'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

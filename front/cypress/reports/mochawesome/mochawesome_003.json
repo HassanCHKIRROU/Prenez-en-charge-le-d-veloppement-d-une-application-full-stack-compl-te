@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-08T17:15:19.559Z",
+    "end": "2026-08-08T17:15:22.314Z",
+    "duration": 2755,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f6f81960-7ba2-4bb8-a9ad-4a9b37bf978d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\article.cy.ts",
+      "file": "cypress\\e2e\\article.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9366696f-05ae-4e2c-bc6a-022ac7db4f89",
+          "title": "Gestion des articles",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should navigate to create article page",
+              "fullTitle": "Gestion des articles should navigate to create article page",
+              "timedOut": null,
+              "duration": 2423,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// 2. Visite directe de la page de création d'article\ncy.visit('/article/create');\ncy.url().should('include', '/article/create');\n// 3. Vérification du titre de la page\ncy.contains('h1', 'Créer un nouvel article').should('be.visible');",
+              "err": {},
+              "uuid": "eb340b64-5857-4b51-a579-8b6c5f51e9b8",
+              "parentUUID": "9366696f-05ae-4e2c-bc6a-022ac7db4f89",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "eb340b64-5857-4b51-a579-8b6c5f51e9b8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2423,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

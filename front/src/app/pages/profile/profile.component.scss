@@ -1,139 +1,569 @@
+/*====================================================
+    PROFILE - FIGMA DESKTOP (835px)
+====================================================*/
+
+/*======================================
+    Cadre global (835px, bordure noire)
+======================================*/
 .profile-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
-
-  h1 {
-    font-size: 28px;
-    margin-bottom: 24px;
-    color: #1976d2;
-  }
-}
-
-.profile-card {
-  background: white;
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.profile-info {
-  .info-group {
-    margin-bottom: 16px;
-
-    label {
-      font-weight: 600;
-      color: #666;
-      display: block;
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
-
-    p {
-      font-size: 18px;
-      margin: 0;
-      color: #333;
-    }
-  }
-
-  .actions {
-    display: flex;
-    gap: 12px;
-    margin-top: 24px;
-
-    button {
-      padding: 8px 24px;
-    }
-  }
-}
-
-.subscriptions-section {
-  margin-top: 32px;
-  border-top: 1px solid #eee;
-  padding-top: 24px;
-
-  h2 {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 16px;
-  }
-}
-
-.subscription-card {
-  background: #f8f9fa;
-  border-radius: 8px;
-  padding: 16px 20px;
-  margin-bottom: 12px;
+  width: 835px;
+  min-height: 650px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  padding: 40px 30px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+}
 
-  .subscription-info {
-    flex: 1;
+/*======================================
+    Titre "Profil utilisateur" (centré, 322px)
+======================================*/
+h1 {
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 100%;
+  text-align: center;
+  color: #000000;
+  width: 322px;
+  height: 41px;
+  margin: 0 auto 24px auto;
+}
 
-    h3 {
-      margin: 0 0 4px 0;
-      font-size: 16px;
-      color: #1976d2;
-    }
+/*======================================
+    Carte profil (transparente)
+======================================*/
+.profile-card {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-    p {
-      margin: 0;
-      color: #666;
-      font-size: 14px;
-    }
-  }
+/*======================================
+    Informations utilisateur (Alignées à gauche)
+======================================*/
+.profile-info {
+  width: 281px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
 
-  button {
-    flex-shrink: 0;
-    margin-left: 16px;
-  }
+.info-group {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.info-group label {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.info-group p {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  color: #000000;
+  margin: 0;
+}
+
+/*======================================
+    Bouton "Modifier le profil" (Violet)
+======================================*/
+.actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.actions button {
+  flex: 1;
+  height: 40px;
+  border-radius: 8px;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  background: #7763C5 !important;
+  color: #FFFFFF !important;
+}
+
+/*======================================
+    Ligne de séparation horizontale
+======================================*/
+.subscriptions-section {
+  width: 713px;
+  border-top: 1px solid #000000;
+  padding-top: 24px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*======================================
+    Titre "Souscriptions" (centré, 322px)
+======================================*/
+h2 {
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 100%;
+  text-align: center;
+  color: #000000;
+  width: 322px;
+  height: 41px;
+  margin: 0 auto 24px auto;
+}
+
+/*======================================
+    GRILLE 2 COLONNES (CÔTE À CÔTE)
+======================================*/
+.subscriptions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+/*======================================
+    CARTE INDIVIDUELLE (Fond gris clair)
+======================================*/
+.subscription-card {
+  background: #F3F4F6;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 170px;
+}
+
+.subscription-info h3 {
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #000000;
+  margin: 0 0 8px 0;
+}
+
+.subscription-info p {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #000000;
+  margin: 0 0 16px 0;
+}
+
+/*======================================
+    BOUTON "Se désabonner" (Violet, largeur 100%)
+======================================*/
+.btn-normal {
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  background-color: #7763C5;
+  color: #FFFFFF;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: auto;
+  transition: opacity 0.2s ease;
+}
+
+.btn-normal:hover {
+  opacity: 0.9;
+}
+
+/*======================================
+    Messages d'état
+======================================*/
+.empty {
+  text-align: center;
+  color: #888;
+  padding: 20px 0;
 }
 
 .loading {
   text-align: center;
-  padding: 40px;
+  padding: 20px;
   color: #666;
 }
 
 .error {
-  background: #fde8e8;
-  color: #d32f2f;
+  background: #FDECEC;
+  color: #C62828;
   padding: 12px 16px;
   border-radius: 8px;
   margin-bottom: 16px;
+  text-align: center;
+  width: 80%;
 }
 
-.success {
-  background: #e8f5e9;
-  color: #2e7d32;
-  padding: 12px 16px;
-  border-radius: 8px;
+
+
+
+/*====================================================
+    PROFILE - FIGMA DESKTOP (835px)
+====================================================*/
+
+/*======================================
+    Cadre global (835px, bordure noire)
+======================================*/
+.profile-container {
+  width: 835px;
+  min-height: 650px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*======================================
+    Titre "Profil utilisateur" (centré, 322px)
+======================================*/
+h1 {
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 100%;
+  text-align: center;
+  color: #000000;
+  width: 322px;
+  height: 41px;
+  margin: 0 auto 24px auto;
+}
+
+/*======================================
+    Carte profil (transparente)
+======================================*/
+.profile-card {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*======================================
+    Informations utilisateur (Alignées à gauche)
+======================================*/
+.profile-info {
+  width: 281px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.info-group {
+  width: 100%;
   margin-bottom: 16px;
 }
 
+.info-group label {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.info-group p {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  color: #000000;
+  margin: 0;
+}
+
+/*======================================
+    Bouton "Modifier le profil" (Violet)
+======================================*/
+.actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.actions button {
+  flex: 1;
+  height: 40px;
+  border-radius: 8px;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  background: #7763C5 !important;
+  color: #FFFFFF !important;
+}
+
+/*======================================
+    Ligne de séparation horizontale
+======================================*/
+.subscriptions-section {
+  width: 713px;
+  border-top: 1px solid #000000;
+  padding-top: 24px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*======================================
+    Titre "Souscriptions" (centré, 322px)
+======================================*/
+h2 {
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 100%;
+  text-align: center;
+  color: #000000;
+  width: 322px;
+  height: 41px;
+  margin: 0 auto 24px auto;
+}
+
+/*======================================
+    GRILLE 2 COLONNES (CÔTE À CÔTE)
+======================================*/
+.subscriptions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+/*======================================
+    CARTE INDIVIDUELLE (Fond gris clair)
+======================================*/
+.subscription-card {
+  background: #F3F4F6;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 170px;
+}
+
+.subscription-info h3 {
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #000000;
+  margin: 0 0 8px 0;
+}
+
+.subscription-info p {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #000000;
+  margin: 0 0 16px 0;
+}
+
+/*======================================
+    BOUTON "Se désabonner" (Violet, largeur 100%)
+======================================*/
+.btn-normal {
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  background-color: #7763C5;
+  color: #FFFFFF;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: auto;
+  transition: opacity 0.2s ease;
+}
+
+.btn-normal:hover {
+  opacity: 0.9;
+}
+
+/*======================================
+    Messages d'état
+======================================*/
 .empty {
+  text-align: center;
   color: #888;
+  padding: 20px 0;
+}
+
+.loading {
   text-align: center;
   padding: 20px;
+  color: #666;
 }
 
-@media (max-width: 768px) {
-  .subscription-card {
-    flex-direction: column;
-    align-items: stretch;
+.error {
+  background: #FDECEC;
+  color: #C62828;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  text-align: center;
+  width: 80%;
+}
 
-    button {
-      margin-left: 0;
-      margin-top: 12px;
-    }
+
+/*====================================================
+              RESPONSIVE MOBILE (294px)
+====================================================*/
+@media (max-width: 768px) {
+  /* Cadre mobile (dimensions exactes) */
+  
+/*======================================
+    Cadre global (835px, bordure noire)
+======================================*/
+.profile-container {
+  width: 294px;
+  min-height: 650px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+  /* Titre "Profil utilisateur" */
+  h1 {
+    width: auto;
+    max-width: 322px;
+    height: 41px;
+    font-size: 24px;
+    text-align: center;
+    margin: 0 auto 20px auto; /* Centré horizontalement */
   }
 
-  .profile-info .actions {
-    flex-direction: column;
+  /* Informations utilisateur dans leur rectangle violet */
+  .profile-info {
+    width: 250px;
+    border: 2px solid #7763C5;
+    border-radius: 8px;
+    padding: 16px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+  }
 
-    button {
-      width: 100%;
-    }
+  .info-group {
+    margin-bottom: 12px;
+  }
+
+  .info-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-group label {
+    font-size: 14px;
+  }
+
+  .info-group p {
+    font-size: 16px;
+  }
+
+  /* Bouton Modifier le profil */
+  .actions {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  .actions button {
+    width: 139px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  /* Trait de séparation horizontal */
+  .subscriptions-section {
+    width: 250px;
+    border-top: 1px solid #000000;
+    padding-top: 20px;
+    margin-top: 12px;
+  }
+
+  /* Titre "Souscriptions" */
+  h2 {
+    width: auto;
+    max-width: 322px;
+    height: 41px;
+    font-size: 24px;
+    text-align: center;
+    margin: 0 auto 20px auto; /* Centré horizontalement */
+  }
+
+  /* Grille mobile : 1 seule colonne */
+  .subscriptions-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Cartes mobiles */
+  .subscription-card {
+    width: 268px;
+    min-height: 77px;
+    padding: 16px;
+    gap: 8px;
+  }
+
+  /* Premier carte plus grande, deuxième plus petite (selon ta maquette) */
+  .subscription-card:first-child {
+    min-height: 142px;
+  }
+
+  .subscription-card h3 {
+    font-size: 16px;
+    margin: 0 0 4px 0;
+  }
+
+  .subscription-card p {
+    font-size: 14px;
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+  }
+
+  /* Bouton Se désabonner mobile */
+  .btn-normal {
+    width: 100%;
+    height: 36px;
+    font-size: 14px;
+    margin-top: 4px;
   }
 }

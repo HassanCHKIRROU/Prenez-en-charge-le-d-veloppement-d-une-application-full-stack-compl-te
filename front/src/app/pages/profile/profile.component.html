@@ -29,13 +29,12 @@
         <button mat-raised-button color="primary" routerLink="/profile/edit">
           Modifier le profil
         </button>
-        <button mat-raised-button color="warn" (click)="logout()">
-          Se déconnecter
-        </button>
+      
       </div>
     </div>
 
     <!-- Abonnements -->
+     
     <div class="subscriptions-section">
       <h2>Souscriptions</h2>
 
@@ -43,16 +42,18 @@
         Vous n'êtes abonné à aucun thème.
       </div>
 
+      <div class="subscriptions-grid">
       <div *ngFor="let topic of userProfile.subscriptions" class="subscription-card">
         <div class="subscription-info">
           <h3> {{topic.title}} </h3>
           <p> {{topic.description}} </p>
         </div>
         
-        <button mat-raised-button color="warn" (click)="unsubscribe(topic.id)">
-          Se désabonner
+        <button type="button" class="btn-normal" (click)="unsubscribe(topic.id)">
+  Se désabonner
         </button>
       </div>
+    </div>
     </div>
   </div>
 </div>

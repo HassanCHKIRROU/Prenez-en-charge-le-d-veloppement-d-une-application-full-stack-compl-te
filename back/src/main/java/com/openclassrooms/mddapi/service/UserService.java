@@ -89,7 +89,7 @@ public class UserService {
 
         if (!user.getUsername().equals(request.getUsername()) &&
                 userRepository.existsByUsername(request.getUsername())) {
-            throw new RuntimeException("Ce nom d'utilisateur est déjà utilisé");
+            throw new RuntimeException("Ce username est déjà utilisé");
         }
 
         if (!user.getEmail().equals(request.getEmail()) &&

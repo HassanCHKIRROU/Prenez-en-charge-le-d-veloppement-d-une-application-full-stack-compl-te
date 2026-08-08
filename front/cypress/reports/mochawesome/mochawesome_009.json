@@ -1,0 +1,219 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-08T17:15:59.947Z",
+    "end": "2026-08-08T17:16:09.512Z",
+    "duration": 9565,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a7a41d9a-3519-41cc-bcff-565bcf601d99",
+      "title": "",
+      "fullFile": "cypress\\e2e\\profile.cy.ts",
+      "file": "cypress\\e2e\\profile.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "641a8224-56f7-485f-be96-476446934701",
+          "title": "Profil utilisateur",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "affiche les informations du profil",
+              "fullTitle": "Profil utilisateur affiche les informations du profil",
+              "timedOut": null,
+              "duration": 2246,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Profil utilisateur').should('be.visible');\ncy.contains('Nom d\\'utilisateur').should('be.visible');\ncy.contains('Adresse e-mail').should('be.visible');\ncy.contains('Membre depuis').should('be.visible');",
+              "err": {},
+              "uuid": "8faaaec0-6740-4011-b90c-ade1aee6cc68",
+              "parentUUID": "641a8224-56f7-485f-be96-476446934701",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "affiche le nom d'utilisateur",
+              "fullTitle": "Profil utilisateur affiche le nom d'utilisateur",
+              "timedOut": null,
+              "duration": 1026,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Jane').should('be.visible');",
+              "err": {},
+              "uuid": "3cce1c39-5153-4017-9f07-6bfeb8cd432b",
+              "parentUUID": "641a8224-56f7-485f-be96-476446934701",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "affiche l'email",
+              "fullTitle": "Profil utilisateur affiche l'email",
+              "timedOut": null,
+              "duration": 992,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('jane@email.com').should('be.visible');",
+              "err": {},
+              "uuid": "0724fc98-e94f-4570-b0fd-0efd127ef809",
+              "parentUUID": "641a8224-56f7-485f-be96-476446934701",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "affiche la section Souscriptions",
+              "fullTitle": "Profil utilisateur affiche la section Souscriptions",
+              "timedOut": null,
+              "duration": 952,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Souscriptions').should('be.visible');",
+              "err": {},
+              "uuid": "f38e2669-2ff6-412f-9b88-87a16b085a3f",
+              "parentUUID": "641a8224-56f7-485f-be96-476446934701",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "va vers la modification du profil",
+              "fullTitle": "Profil utilisateur va vers la modification du profil",
+              "timedOut": null,
+              "duration": 1329,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Modifier le profil').click();\ncy.url().should('include', '/profile/edit');",
+              "err": {},
+              "uuid": "044e6b69-93d7-4c62-a106-29a46a8e9f5e",
+              "parentUUID": "641a8224-56f7-485f-be96-476446934701",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "se déconnecte",
+              "fullTitle": "Profil utilisateur se déconnecte",
+              "timedOut": null,
+              "duration": 1093,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Se déconnecter').click();\ncy.url().should('include', '/');\ncy.contains('Se connecter').should('be.visible');",
+              "err": {},
+              "uuid": "78bf1b15-e082-498e-9ec1-40963bcf302e",
+              "parentUUID": "641a8224-56f7-485f-be96-476446934701",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "affiche \"Aucun abonnement\" si la liste est vide",
+              "fullTitle": "Profil utilisateur affiche \"Aucun abonnement\" si la liste est vide",
+              "timedOut": null,
+              "duration": 896,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('body').then(($body) => {\n    if ($body.find('.subscription-card').length === 0) {\n        cy.contains('Vous n\\'êtes abonné à aucun thème.').should('be.visible');\n    }\n});",
+              "err": {},
+              "uuid": "e9c97da2-c901-4625-9005-1038ba53da5d",
+              "parentUUID": "641a8224-56f7-485f-be96-476446934701",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8faaaec0-6740-4011-b90c-ade1aee6cc68",
+            "3cce1c39-5153-4017-9f07-6bfeb8cd432b",
+            "0724fc98-e94f-4570-b0fd-0efd127ef809",
+            "f38e2669-2ff6-412f-9b88-87a16b085a3f",
+            "044e6b69-93d7-4c62-a106-29a46a8e9f5e",
+            "78bf1b15-e082-498e-9ec1-40963bcf302e",
+            "e9c97da2-c901-4625-9005-1038ba53da5d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8534,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

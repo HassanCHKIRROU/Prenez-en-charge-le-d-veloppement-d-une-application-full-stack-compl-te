@@ -1,0 +1,200 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-08T17:15:30.077Z",
+    "end": "2026-08-08T17:15:37.402Z",
+    "duration": 7325,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bdf7ded9-256d-460b-b791-d39dde95be31",
+      "title": "",
+      "fullFile": "cypress\\e2e\\feed.cy.ts",
+      "file": "cypress\\e2e\\feed.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7973ced2-7881-45e6-8db2-4f43e30607d2",
+          "title": "Fil d'actualité",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should display feed with articles",
+              "fullTitle": "Fil d'actualité should display feed with articles",
+              "timedOut": null,
+              "duration": 1530,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Articles').should('be.visible');\ncy.get('.article-card').should('exist');",
+              "err": {},
+              "uuid": "58ce8a50-b73a-4ab5-97ed-e64e2e691f09",
+              "parentUUID": "7973ced2-7881-45e6-8db2-4f43e30607d2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display article title, author and date",
+              "fullTitle": "Fil d'actualité should display article title, author and date",
+              "timedOut": null,
+              "duration": 928,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.article-card').first().within(() => {\n    cy.get('h2').should('be.visible'); // Titre\n    cy.get('.article-info').should('be.visible'); // Auteur + Date\n});",
+              "err": {},
+              "uuid": "bb450fe0-6f8c-4d0f-bba8-f703ff8a4f02",
+              "parentUUID": "7973ced2-7881-45e6-8db2-4f43e30607d2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should be able to sort articles",
+              "fullTitle": "Fil d'actualité should be able to sort articles",
+              "timedOut": null,
+              "duration": 952,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Vérifier que le bouton de tri est présent et cliquable\ncy.contains('Trier par').should('be.visible').click();\ncy.get('.sort-container mat-icon').should('exist');",
+              "err": {},
+              "uuid": "cdb5003a-3645-4d16-a07f-872a12d68552",
+              "parentUUID": "7973ced2-7881-45e6-8db2-4f43e30607d2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should navigate to article detail on click",
+              "fullTitle": "Fil d'actualité should navigate to article detail on click",
+              "timedOut": null,
+              "duration": 924,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.article-card').first().click();\ncy.url().should('include', '/article/');",
+              "err": {},
+              "uuid": "03066150-003e-4690-84e8-864a87eb5c56",
+              "parentUUID": "7973ced2-7881-45e6-8db2-4f43e30607d2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display \"Créer un article\" button",
+              "fullTitle": "Fil d'actualité should display \"Créer un article\" button",
+              "timedOut": null,
+              "duration": 773,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Créer un article').should('be.visible');",
+              "err": {},
+              "uuid": "fe8341f7-912e-4cb6-8e2f-c9321912b484",
+              "parentUUID": "7973ced2-7881-45e6-8db2-4f43e30607d2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should navigate to create article page",
+              "fullTitle": "Fil d'actualité should navigate to create article page",
+              "timedOut": null,
+              "duration": 1227,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Créer un article').click();\ncy.url().should('include', '/article/create');",
+              "err": {},
+              "uuid": "448394c5-96f3-4af4-984b-2503f0a9df36",
+              "parentUUID": "7973ced2-7881-45e6-8db2-4f43e30607d2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "58ce8a50-b73a-4ab5-97ed-e64e2e691f09",
+            "bb450fe0-6f8c-4d0f-bba8-f703ff8a4f02",
+            "cdb5003a-3645-4d16-a07f-872a12d68552",
+            "03066150-003e-4690-84e8-864a87eb5c56",
+            "fe8341f7-912e-4cb6-8e2f-c9321912b484",
+            "448394c5-96f3-4af4-984b-2503f0a9df36"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6334,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

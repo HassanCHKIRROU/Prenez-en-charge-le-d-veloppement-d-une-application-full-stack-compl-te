@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-08T17:15:48.188Z",
+    "end": "2026-08-08T17:15:57.996Z",
+    "duration": 9808,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ee4e8ee1-ac6f-414e-9f0d-447851f808ae",
+      "title": "",
+      "fullFile": "cypress\\e2e\\profile-edit.cy.ts",
+      "file": "cypress\\e2e\\profile-edit.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "08aa3727-531c-4051-9ce8-11ac63c0816e",
+          "title": "Modification du profil",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "affiche le formulaire de modification",
+              "fullTitle": "Modification du profil affiche le formulaire de modification",
+              "timedOut": null,
+              "duration": 2855,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Modifier le profil').should('be.visible');\ncy.get('input[formcontrolname=\"username\"]').should('be.visible');\ncy.get('input[formcontrolname=\"email\"]').should('be.visible');",
+              "err": {},
+              "uuid": "20c62018-d3d0-4a6d-a660-90b513fe7c47",
+              "parentUUID": "08aa3727-531c-4051-9ce8-11ac63c0816e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "affiche les valeurs actuelles du profil",
+              "fullTitle": "Modification du profil affiche les valeurs actuelles du profil",
+              "timedOut": null,
+              "duration": 1155,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[formcontrolname=\"username\"]').should('have.value', 'Jane');\ncy.get('input[formcontrolname=\"email\"]').should('have.value', 'jane@email.com');",
+              "err": {},
+              "uuid": "ebbe37aa-0cf1-4b1b-b874-2c5e725c0d6c",
+              "parentUUID": "08aa3727-531c-4051-9ce8-11ac63c0816e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "affiche les erreurs de validation avec des champs vides",
+              "fullTitle": "Modification du profil affiche les erreurs de validation avec des champs vides",
+              "timedOut": null,
+              "duration": 1662,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[formcontrolname=\"username\"]').clear();\ncy.get('input[formcontrolname=\"email\"]').clear();\ncy.get('button[type=\"submit\"]').click({ force: true });\ncy.get('mat-error').should('be.visible');",
+              "err": {},
+              "uuid": "061b43e3-e00d-4261-961f-3eb3c2f56c69",
+              "parentUUID": "08aa3727-531c-4051-9ce8-11ac63c0816e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "annule et retourne au profil",
+              "fullTitle": "Modification du profil annule et retourne au profil",
+              "timedOut": null,
+              "duration": 1164,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Annuler').click();\ncy.url().should('include', '/profile');",
+              "err": {},
+              "uuid": "853a765d-02f1-44a8-8d9b-bec43b995a48",
+              "parentUUID": "08aa3727-531c-4051-9ce8-11ac63c0816e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "modifie le mot de passe",
+              "fullTitle": "Modification du profil modifie le mot de passe",
+              "timedOut": null,
+              "duration": 2144,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[formcontrolname=\"password\"]').type('Jane1234!');\ncy.get('input[formcontrolname=\"confirmPassword\"]').type('Jane1234!');\ncy.get('button[type=\"submit\"]').click();\ncy.contains('Profil mis à jour avec succès !').should('be.visible');",
+              "err": {},
+              "uuid": "c6df8a48-3b40-4b1d-ae8b-1961fa7343aa",
+              "parentUUID": "08aa3727-531c-4051-9ce8-11ac63c0816e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "20c62018-d3d0-4a6d-a660-90b513fe7c47",
+            "ebbe37aa-0cf1-4b1b-b874-2c5e725c0d6c",
+            "061b43e3-e00d-4261-961f-3eb3c2f56c69",
+            "853a765d-02f1-44a8-8d9b-bec43b995a48",
+            "c6df8a48-3b40-4b1d-ae8b-1961fa7343aa"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8980,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

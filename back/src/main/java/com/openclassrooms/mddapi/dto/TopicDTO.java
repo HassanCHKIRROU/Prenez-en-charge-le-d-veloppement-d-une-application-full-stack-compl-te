@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//@Data
-//@Builder
-//@NoArgsConstructor
-//@AllArgsConstructor
+
 public class TopicDTO {
 	
 	
@@ -20,6 +17,8 @@ public class TopicDTO {
     
     
     
+    
+    //Constructors
     public TopicDTO() {}
     
     public TopicDTO(Long id, String title, String description, Boolean subscribed) {
@@ -31,6 +30,9 @@ public class TopicDTO {
 	}
     
     
+    
+    
+    //Getters & Setters
 	public Long getId() {
 		return id;
 	}

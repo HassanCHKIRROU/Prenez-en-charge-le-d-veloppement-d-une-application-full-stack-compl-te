@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-08T17:15:23.953Z",
+    "end": "2026-08-08T17:15:28.251Z",
+    "duration": 4298,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8aee2d4c-e746-4c4e-b249-b71ae44964de",
+      "title": "",
+      "fullFile": "cypress\\e2e\\auth.cy.ts",
+      "file": "cypress\\e2e\\auth.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4b028ee7-e46f-49f8-97c2-d8b32ab63f77",
+          "title": "Authentification",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should show validation errors with empty form",
+              "fullTitle": "Authentification should show validation errors with empty form",
+              "timedOut": null,
+              "duration": 932,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('button[type=\"submit\"]').click();\ncy.contains('Ce champ est requis').should('be.visible');",
+              "err": {},
+              "uuid": "80b5b5b3-cee9-4af0-876d-c0bb7a0cadc2",
+              "parentUUID": "4b028ee7-e46f-49f8-97c2-d8b32ab63f77",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show error with invalid credentials",
+              "fullTitle": "Authentification should show error with invalid credentials",
+              "timedOut": null,
+              "duration": 904,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[formControlName=\"usernameOrEmail\"]').type('wronguser');\ncy.get('input[formControlName=\"password\"]').type('WrongPass123!');\ncy.get('button[type=\"submit\"]').click();\ncy.contains('Erreur de connexion').should('be.visible');",
+              "err": {},
+              "uuid": "a1aa9567-7797-43e5-9910-b9b67d1d6bd9",
+              "parentUUID": "4b028ee7-e46f-49f8-97c2-d8b32ab63f77",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should login successfully",
+              "fullTitle": "Authentification should login successfully",
+              "timedOut": null,
+              "duration": 765,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[formControlName=\"usernameOrEmail\"]').type('Jane');\ncy.get('input[formControlName=\"password\"]').type('Jane1234!');\ncy.get('button[type=\"submit\"]').click();\ncy.url().should('include', '/feed');\ncy.contains('Articles').should('be.visible');",
+              "err": {},
+              "uuid": "62373e09-170b-4462-8467-c0b505e66309",
+              "parentUUID": "4b028ee7-e46f-49f8-97c2-d8b32ab63f77",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should logout successfully",
+              "fullTitle": "Authentification should logout successfully",
+              "timedOut": null,
+              "duration": 1157,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// 1. Login\ncy.get('input[formControlName=\"usernameOrEmail\"]').type('Jane');\ncy.get('input[formControlName=\"password\"]').type('Jane1234!');\ncy.get('button[type=\"submit\"]').click();\ncy.url().should('include', '/feed');\n// 2. Aller au profil\ncy.get('button[routerLink=\"/profile\"]').click(); // Sélecteur corrigé\ncy.url().should('include', '/profile');\n// 3. Se déconnecter\ncy.contains('Se déconnecter').click();\ncy.url().should('include', '/');\ncy.contains('Se connecter').should('be.visible');",
+              "err": {},
+              "uuid": "8fd590ff-0a25-44ad-983e-1b1e9dafda5d",
+              "parentUUID": "4b028ee7-e46f-49f8-97c2-d8b32ab63f77",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "80b5b5b3-cee9-4af0-876d-c0bb7a0cadc2",
+            "a1aa9567-7797-43e5-9910-b9b67d1d6bd9",
+            "62373e09-170b-4462-8467-c0b505e66309",
+            "8fd590ff-0a25-44ad-983e-1b1e9dafda5d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3758,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

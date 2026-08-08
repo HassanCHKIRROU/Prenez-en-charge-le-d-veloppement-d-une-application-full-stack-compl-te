@@ -1,10 +1,13 @@
 package com.openclassrooms.mddapi.model;
 
 import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import org.hibernate.validator.constraints.Email;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -28,6 +31,7 @@ public class User {
     @Column(unique = true, nullable = false, length = 50)
     private String username;
 
+    
     
     @Column(unique = true, nullable = false, length = 100)
     private String email;

@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-08T17:16:11.639Z",
+    "end": "2026-08-08T17:16:17.598Z",
+    "duration": 5959,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2ebb94f5-ded0-4ba1-8325-8f183810db85",
+      "title": "",
+      "fullFile": "cypress\\e2e\\register.cy.ts",
+      "file": "cypress\\e2e\\register.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "484af3c3-128d-4e60-b0c9-d837a1ef80b5",
+          "title": "Inscription",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should show validation errors with invalid data",
+              "fullTitle": "Inscription should show validation errors with invalid data",
+              "timedOut": null,
+              "duration": 2234,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[formControlName=\"username\"]').type('ab');\ncy.get('input[formControlName=\"email\"]').type('invalid-email');\ncy.get('input[formControlName=\"password\"]').type('123');\ncy.get('button[type=\"submit\"]').click();\n// On vérifie juste qu'il y a au moins un message d'erreur visible\ncy.get('mat-error').should('be.visible');",
+              "err": {},
+              "uuid": "cd70048f-72f8-4109-b03d-c6517ff90e2e",
+              "parentUUID": "484af3c3-128d-4e60-b0c9-d837a1ef80b5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should register successfully",
+              "fullTitle": "Inscription should register successfully",
+              "timedOut": null,
+              "duration": 1851,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const timestamp = Date.now();\nconst username = `user${timestamp}`;\nconst email = `user${timestamp}@test.com`;\ncy.get('input[formControlName=\"username\"]').type(username);\ncy.get('input[formControlName=\"email\"]').type(email);\ncy.get('input[formControlName=\"password\"]').type('Test1234!');\ncy.get('button[type=\"submit\"]').click();\ncy.url().should('include', '/feed');\ncy.contains('Articles').should('be.visible');",
+              "err": {},
+              "uuid": "09db7ba7-f9e2-492b-8a45-d8630f3044bf",
+              "parentUUID": "484af3c3-128d-4e60-b0c9-d837a1ef80b5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show error if email already exists",
+              "fullTitle": "Inscription should show error if email already exists",
+              "timedOut": null,
+              "duration": 1421,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[formControlName=\"username\"]').type('NewUser');\ncy.get('input[formControlName=\"email\"]').type('fatima@email.com');\ncy.get('input[formControlName=\"password\"]').type('Test1234!');\ncy.get('button[type=\"submit\"]').click();\n// On vérifie juste que l'URL n'est pas /feed (donc il y a une erreur)\ncy.url().should('not.include', '/feed');",
+              "err": {},
+              "uuid": "36e7b029-7ad2-483a-b9b3-6bfabae99d7f",
+              "parentUUID": "484af3c3-128d-4e60-b0c9-d837a1ef80b5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cd70048f-72f8-4109-b03d-c6517ff90e2e",
+            "09db7ba7-f9e2-492b-8a45-d8630f3044bf",
+            "36e7b029-7ad2-483a-b9b3-6bfabae99d7f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5506,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

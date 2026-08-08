@@ -1,0 +1,219 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-08T17:16:19.346Z",
+    "end": "2026-08-08T17:16:29.427Z",
+    "duration": 10081,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3b862475-1e70-4a0a-8700-b02d68556cfd",
+      "title": "",
+      "fullFile": "cypress\\e2e\\topics.cy.ts",
+      "file": "cypress\\e2e\\topics.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8286dade-7484-44e0-88b7-583c77fe063a",
+          "title": "Gestion des thèmes",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "affiche la page des thèmes",
+              "fullTitle": "Gestion des thèmes affiche la page des thèmes",
+              "timedOut": null,
+              "duration": 2624,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Thèmes').should('be.visible');",
+              "err": {},
+              "uuid": "18e63bb4-aceb-4d5b-b1f6-1ff9fe0d237e",
+              "parentUUID": "8286dade-7484-44e0-88b7-583c77fe063a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "affiche la liste des thèmes",
+              "fullTitle": "Gestion des thèmes affiche la liste des thèmes",
+              "timedOut": null,
+              "duration": 1055,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.topic-card').should('have.length.greaterThan', 0);",
+              "err": {},
+              "uuid": "0b6c8bde-9305-4677-b85b-9f5ef5614ec6",
+              "parentUUID": "8286dade-7484-44e0-88b7-583c77fe063a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "affiche le titre et la description d'un thème",
+              "fullTitle": "Gestion des thèmes affiche le titre et la description d'un thème",
+              "timedOut": null,
+              "duration": 971,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.topic-card').first().within(() => {\n    cy.get('h2').should('be.visible');\n    cy.get('.topic-content').should('be.visible');\n});",
+              "err": {},
+              "uuid": "2439ff11-f5f6-4862-a0db-0b1de40bd19c",
+              "parentUUID": "8286dade-7484-44e0-88b7-583c77fe063a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "s'abonne à un thème",
+              "fullTitle": "Gestion des thèmes s'abonne à un thème",
+              "timedOut": null,
+              "duration": 1048,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('button:contains(\"S\\'abonner\")').first().click();\ncy.contains('Déjà abonné').should('be.visible');",
+              "err": {},
+              "uuid": "92b56182-d5b6-4085-8607-16b7248e3982",
+              "parentUUID": "8286dade-7484-44e0-88b7-583c77fe063a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "affiche les thèmes déjà abonnés",
+              "fullTitle": "Gestion des thèmes affiche les thèmes déjà abonnés",
+              "timedOut": null,
+              "duration": 1244,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.subscribed-badge').should('exist');",
+              "err": {},
+              "uuid": "a4e5a140-80a2-4d8d-9fb0-f0de8e073637",
+              "parentUUID": "8286dade-7484-44e0-88b7-583c77fe063a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "charge les thèmes sans erreur",
+              "fullTitle": "Gestion des thèmes charge les thèmes sans erreur",
+              "timedOut": null,
+              "duration": 913,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.loading').should('not.exist');\ncy.get('.error').should('not.exist');",
+              "err": {},
+              "uuid": "f3ac28b1-2d43-45bb-bc15-a55f423bd5d2",
+              "parentUUID": "8286dade-7484-44e0-88b7-583c77fe063a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "gère l'erreur de chargement des thèmes",
+              "fullTitle": "Gestion des thèmes gère l'erreur de chargement des thèmes",
+              "timedOut": null,
+              "duration": 1122,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept('GET', '/api/topics', {\n    statusCode: 500,\n    body: { message: 'Erreur serveur' }\n}).as('getTopicsError');\ncy.visit('/topics');\ncy.wait('@getTopicsError');\ncy.contains('Erreur lors du chargement des thèmes').should('be.visible');",
+              "err": {},
+              "uuid": "90288d92-bd36-4a39-a067-bc1123241d06",
+              "parentUUID": "8286dade-7484-44e0-88b7-583c77fe063a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "18e63bb4-aceb-4d5b-b1f6-1ff9fe0d237e",
+            "0b6c8bde-9305-4677-b85b-9f5ef5614ec6",
+            "2439ff11-f5f6-4862-a0db-0b1de40bd19c",
+            "92b56182-d5b6-4085-8607-16b7248e3982",
+            "a4e5a140-80a2-4d8d-9fb0-f0de8e073637",
+            "f3ac28b1-2d43-45bb-bc15-a55f423bd5d2",
+            "90288d92-bd36-4a39-a067-bc1123241d06"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8977,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

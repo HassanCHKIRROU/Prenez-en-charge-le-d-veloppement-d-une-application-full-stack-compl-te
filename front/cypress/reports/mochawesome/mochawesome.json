@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-08T17:14:08.648Z",
+    "end": "2026-08-08T17:14:11.810Z",
+    "duration": 3162,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6731fb23-f2b2-4ca0-add2-bf50ccfeb341",
+      "title": "",
+      "fullFile": "cypress\\e2e\\app.cy.ts",
+      "file": "cypress\\e2e\\app.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b1a9fdcd-9ef5-4a85-82e7-8b48530880c2",
+          "title": "Application MDD",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should display home page",
+              "fullTitle": "Application MDD should display home page",
+              "timedOut": null,
+              "duration": 1806,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.get('.logo, img[alt=\"MDD\"], header img').should('be.visible');",
+              "err": {},
+              "uuid": "e2a406e6-37e9-4fe9-b567-f3685c1eefbc",
+              "parentUUID": "b1a9fdcd-9ef5-4a85-82e7-8b48530880c2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should navigate to login",
+              "fullTitle": "Application MDD should navigate to login",
+              "timedOut": null,
+              "duration": 370,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.contains('Se connecter').click();\ncy.url().should('include', '/login');",
+              "err": {},
+              "uuid": "4b73183d-b465-4047-b0cb-019c43a5e0db",
+              "parentUUID": "b1a9fdcd-9ef5-4a85-82e7-8b48530880c2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should navigate to register",
+              "fullTitle": "Application MDD should navigate to register",
+              "timedOut": null,
+              "duration": 310,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/');\ncy.contains('S\\'inscrire').click();\ncy.url().should('include', '/register');",
+              "err": {},
+              "uuid": "976993ae-883e-4504-8343-2730ff4f201e",
+              "parentUUID": "b1a9fdcd-9ef5-4a85-82e7-8b48530880c2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e2a406e6-37e9-4fe9-b567-f3685c1eefbc",
+            "4b73183d-b465-4047-b0cb-019c43a5e0db",
+            "976993ae-883e-4504-8343-2730ff4f201e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2486,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

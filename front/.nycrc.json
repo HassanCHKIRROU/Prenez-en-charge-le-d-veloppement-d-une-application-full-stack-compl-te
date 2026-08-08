@@ -1,0 +1,19 @@
+{
+  "all": true,
+  "include": [
+    "src/app/**/*.ts"
+  ],
+  "exclude": [
+    "src/app/**/*.spec.ts",
+    "src/app/**/*.module.ts",
+    "src/main.ts",
+    "src/polyfills.ts",
+    "cypress/**"
+  ],
+  "reporter": [
+    "html",
+    "text-summary",
+    "json"
+  ],
+  "report-dir": "coverage"
+}
