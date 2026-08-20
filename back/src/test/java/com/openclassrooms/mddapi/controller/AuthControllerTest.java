@@ -37,6 +37,8 @@ class AuthControllerTest {
     private LoginRequest loginRequest;
     private AuthResponse authResponse;
 
+    
+    
     @BeforeEach
     void setUp() {
         mockMvc = MockMvcBuilders.standaloneSetup(authController).build();
@@ -57,6 +59,11 @@ class AuthControllerTest {
         authResponse.setEmail("test@example.com");
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldRegisterUser() throws Exception {
         when(authService.register(any(RegisterRequest.class))).thenReturn(authResponse);
@@ -69,6 +76,10 @@ class AuthControllerTest {
                 .andExpect(jsonPath("$.username").value("testuser"));
     }
 
+    
+    
+    
+    
     @Test
     void shouldLoginUser() throws Exception {
         when(authService.login(any(LoginRequest.class))).thenReturn(authResponse);
@@ -81,6 +92,11 @@ class AuthControllerTest {
                 .andExpect(jsonPath("$.username").value("testuser"));
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldReturnBadRequestWhenRegisterRequestInvalid() throws Exception {
         RegisterRequest invalidRequest = new RegisterRequest();

@@ -10,12 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.openclassrooms.mddapi.dto.TopicDTO;
 import com.openclassrooms.mddapi.service.TopicService;
 
-import lombok.RequiredArgsConstructor;
 
 
 @RestController
 @RequestMapping("/topics")
-
 public class TopicController {
 	
 	private final TopicService topicService;
@@ -30,7 +28,7 @@ public class TopicController {
 
 
 
-
+    //Récuperer tous les thèmes pour un utilisateur connecté
 
 	@GetMapping
 	public ResponseEntity<List<TopicDTO>> getAllTopics(){

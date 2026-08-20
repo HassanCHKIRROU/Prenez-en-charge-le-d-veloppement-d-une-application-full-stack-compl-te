@@ -38,6 +38,10 @@ class UserControllerTest {
     private UserProfileResponse profileResponse;
     private UpdateProfileRequest updateRequest;
 
+    
+    
+    
+    
     @BeforeEach
     void setUp() {
         mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
@@ -56,6 +60,9 @@ class UserControllerTest {
         updateRequest.setPassword("NewTest1234!");
     }
 
+    
+    
+    
     @Test
     void shouldGetProfile() throws Exception {
         when(userService.getCurrentUserProfile()).thenReturn(profileResponse);
@@ -66,6 +73,11 @@ class UserControllerTest {
                 .andExpect(jsonPath("$.email").value("test@example.com"));
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldUpdateProfile() throws Exception {
         when(userService.updateProfile(any(UpdateProfileRequest.class))).thenReturn(profileResponse);

@@ -56,6 +56,9 @@ class ArticleControllerTest {
         articleResponse.setComments(new ArrayList<>());
     }
 
+    
+    
+    
     @Test
     void shouldCreateArticle() throws Exception {
         when(articleService.createArticle(any(ArticleRequest.class))).thenReturn(articleResponse);
@@ -68,6 +71,11 @@ class ArticleControllerTest {
                 .andExpect(jsonPath("$.title").value("Test Article"));
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldGetFeed() throws Exception {
         when(articleService.getFeed("desc")).thenReturn(new ArrayList<>());
@@ -77,6 +85,9 @@ class ArticleControllerTest {
                 .andExpect(status().isOk());
     }
 
+    
+    
+    
     @Test
     void shouldGetArticleById() throws Exception {
         when(articleService.getArticleById(1L)).thenReturn(articleResponse);

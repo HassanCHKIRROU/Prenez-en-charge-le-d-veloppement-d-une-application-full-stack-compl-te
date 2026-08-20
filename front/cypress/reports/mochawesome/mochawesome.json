@@ -5,9 +5,9 @@
     "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2026-08-08T17:14:08.648Z",
-    "end": "2026-08-08T17:14:11.810Z",
-    "duration": 3162,
+    "start": "2026-08-20T19:57:57.909Z",
+    "end": "2026-08-20T19:58:05.884Z",
+    "duration": 7975,
     "testsRegistered": 3,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "6731fb23-f2b2-4ca0-add2-bf50ccfeb341",
+      "uuid": "f4dac50c-090c-468c-b9a5-522005e11b55",
       "title": "",
       "fullFile": "cypress\\e2e\\app.cy.ts",
       "file": "cypress\\e2e\\app.cy.ts",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "b1a9fdcd-9ef5-4a85-82e7-8b48530880c2",
+          "uuid": "2629d25b-134d-44a8-aba7-10ea3cdc29fb",
           "title": "Application MDD",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "should display home page",
               "fullTitle": "Application MDD should display home page",
               "timedOut": null,
-              "duration": 1806,
+              "duration": 2337,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.visit('/');\ncy.get('.logo, img[alt=\"MDD\"], header img').should('be.visible');",
               "err": {},
-              "uuid": "e2a406e6-37e9-4fe9-b567-f3685c1eefbc",
-              "parentUUID": "b1a9fdcd-9ef5-4a85-82e7-8b48530880c2",
+              "uuid": "893d01e7-0f4d-445c-9911-8057fd8ee73b",
+              "parentUUID": "2629d25b-134d-44a8-aba7-10ea3cdc29fb",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "should navigate to login",
               "fullTitle": "Application MDD should navigate to login",
               "timedOut": null,
-              "duration": 370,
+              "duration": 623,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "cy.visit('/');\ncy.contains('Se connecter').click();\ncy.url().should('include', '/login');",
               "err": {},
-              "uuid": "4b73183d-b465-4047-b0cb-019c43a5e0db",
-              "parentUUID": "b1a9fdcd-9ef5-4a85-82e7-8b48530880c2",
+              "uuid": "8324fab1-d308-4da8-b66c-512173d7a8be",
+              "parentUUID": "2629d25b-134d-44a8-aba7-10ea3cdc29fb",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "should navigate to register",
               "fullTitle": "Application MDD should navigate to register",
               "timedOut": null,
-              "duration": 310,
+              "duration": 272,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -83,22 +83,22 @@
               "context": null,
               "code": "cy.visit('/');\ncy.contains('S\\'inscrire').click();\ncy.url().should('include', '/register');",
               "err": {},
-              "uuid": "976993ae-883e-4504-8343-2730ff4f201e",
-              "parentUUID": "b1a9fdcd-9ef5-4a85-82e7-8b48530880c2",
+              "uuid": "ea947064-67aa-4370-b418-574448eebf4e",
+              "parentUUID": "2629d25b-134d-44a8-aba7-10ea3cdc29fb",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "e2a406e6-37e9-4fe9-b567-f3685c1eefbc",
-            "4b73183d-b465-4047-b0cb-019c43a5e0db",
-            "976993ae-883e-4504-8343-2730ff4f201e"
+            "893d01e7-0f4d-445c-9911-8057fd8ee73b",
+            "8324fab1-d308-4da8-b66c-512173d7a8be",
+            "ea947064-67aa-4370-b418-574448eebf4e"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2486,
+          "duration": 3232,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

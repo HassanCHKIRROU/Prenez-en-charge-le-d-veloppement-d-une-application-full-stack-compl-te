@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2026-08-08T17:15:43.267Z",
-    "end": "2026-08-08T17:15:46.397Z",
-    "duration": 3130,
+    "start": "2026-08-20T20:03:06.451Z",
+    "end": "2026-08-20T20:03:09.993Z",
+    "duration": 3542,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "e41b0380-803d-414d-b4a0-2e567653bff9",
+      "uuid": "f58d5634-16f8-4c14-87e3-f572d0a2ec4a",
       "title": "",
       "fullFile": "cypress\\e2e\\navigation.cy.ts",
       "file": "cypress\\e2e\\navigation.cy.ts",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "45dcf221-5816-43d7-ab22-5d6f0277d3a6",
+          "uuid": "ebb34526-e8c0-4bf5-8253-0728b449b372",
           "title": "Navigation",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "should navigate between pages",
               "fullTitle": "Navigation should navigate between pages",
               "timedOut": null,
-              "duration": 2516,
+              "duration": 2113,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "//Aller aux Thèmes\ncy.contains('Thèmes').click();\ncy.url().should('include', '/topics');\n// Revenir au Feed\ncy.contains('Articles').click();\ncy.url().should('include', '/feed');\n// Aller au Profil\ncy.get('button[routerLink=\"/profile\"], a[routerLink=\"/profile\"]').click();\ncy.url().should('include', '/profile');",
               "err": {},
-              "uuid": "251eb7a9-518f-4ae0-80ff-3a50475160cc",
-              "parentUUID": "45dcf221-5816-43d7-ab22-5d6f0277d3a6",
+              "uuid": "543bd9f7-6c90-4235-9d37-470cfca996ea",
+              "parentUUID": "ebb34526-e8c0-4bf5-8253-0728b449b372",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "251eb7a9-518f-4ae0-80ff-3a50475160cc"
+            "543bd9f7-6c90-4235-9d37-470cfca996ea"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2516,
+          "duration": 2113,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

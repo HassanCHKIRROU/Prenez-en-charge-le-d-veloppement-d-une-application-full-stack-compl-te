@@ -34,7 +34,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-@MockitoSettings(strictness = Strictness.LENIENT)  // ✅ Permet d'éviter les erreurs de stubbings inutiles
+@MockitoSettings(strictness = Strictness.LENIENT)  // Permet d'éviter les erreurs de stubbings inutiles
 class ArticleServiceTest {
 
     @Mock
@@ -58,15 +58,19 @@ class ArticleServiceTest {
     @InjectMocks
     private ArticleService articleService;
 
+    
     private User author;
     private Topic topic;
     private Article article;
     private ArticleRequest articleRequest;
     private CommentRequest commentRequest;
 
+    
+    
+    
     @BeforeEach
     void setUp() {
-        // ✅ Configuration du contexte de sécurité
+        // Configuration du contexte de sécurité
         SecurityContextHolder.setContext(securityContext);
         when(securityContext.getAuthentication()).thenReturn(authentication);
         when(authentication.getName()).thenReturn("testuser");
@@ -99,9 +103,13 @@ class ArticleServiceTest {
         commentRequest.setContent("Test Comment");
     }
 
+    
+    
+    
+    
     @Test
     void shouldCreateArticleSuccessfully() {
-        // ✅ Stubbings nécessaires pour ce test
+        // Stubbings nécessaires pour ce test
         when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(author));
         when(topicRepository.findByTitle("Java")).thenReturn(Optional.of(topic));
         when(articleRepository.save(any(Article.class))).thenReturn(article);
@@ -114,9 +122,14 @@ class ArticleServiceTest {
         verify(articleRepository, times(1)).save(any(Article.class));
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldCreateTopicIfNotExists() {
-        // ✅ Stubbings nécessaires pour ce test
+        //Stubbings nécessaires pour ce test
         when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(author));
         when(topicRepository.findByTitle("NewTopic")).thenReturn(Optional.empty());
         when(topicRepository.save(any(Topic.class))).thenReturn(topic);
@@ -131,9 +144,15 @@ class ArticleServiceTest {
         verify(topicRepository, times(1)).save(any(Topic.class));
     }
 
+    
+    
+    
+    
+    
+    
     @Test
     void shouldThrowExceptionWhenUserNotFound() {
-        // ✅ Stubbings nécessaires pour ce test
+        //  Stubbings nécessaires pour ce test
         when(userRepository.findByUsername("testuser")).thenReturn(Optional.empty());
 
         assertThatThrownBy(() -> articleService.createArticle(articleRequest))
@@ -142,9 +161,15 @@ class ArticleServiceTest {
         verify(articleRepository, never()).save(any(Article.class));
     }
 
+    
+    
+    
+    
+    
+    
     @Test
     void shouldGetFeedSuccessfully() {
-        // ✅ Stubbings nécessaires pour ce test
+        // Stubbings nécessaires pour ce test
         List<Article> articles = List.of(article);
         when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(author));
         when(articleRepository.findArticlesBySubscribedTopics(1L)).thenReturn(articles);
@@ -157,9 +182,16 @@ class ArticleServiceTest {
         assertThat(feed.get(0).getTitle()).isEqualTo("Test Article");
     }
 
+    
+    
+    
+    
+    
+    
+    
     @Test
     void shouldReturnEmptyFeedWhenNoArticles() {
-        // ✅ Stubbings nécessaires pour ce test
+        // Stubbings nécessaires pour ce test
         when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(author));
         when(articleRepository.findArticlesBySubscribedTopics(1L)).thenReturn(new ArrayList<>());
         when(articleRepository.findByAuthorId(1L)).thenReturn(new ArrayList<>());
@@ -169,9 +201,14 @@ class ArticleServiceTest {
         assertThat(feed).isEmpty();
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldGetArticleByIdSuccessfully() {
-        // ✅ Stubbings nécessaires pour ce test
+        //  Stubbings nécessaires pour ce test
         when(articleRepository.findById(1L)).thenReturn(Optional.of(article));
         when(commentRepository.findByArticleIdOrderByCreatedAtAsc(1L)).thenReturn(new ArrayList<>());
 
@@ -181,9 +218,14 @@ class ArticleServiceTest {
         assertThat(response.getId()).isEqualTo(1L);
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldThrowExceptionWhenArticleNotFound() {
-        // ✅ Stubbings nécessaires pour ce test
+        // Stubbings nécessaires pour ce test
         when(articleRepository.findById(99L)).thenReturn(Optional.empty());
 
         assertThatThrownBy(() -> articleService.getArticleById(99L))

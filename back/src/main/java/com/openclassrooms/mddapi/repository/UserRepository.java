@@ -6,6 +6,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/**
+ * Interface de repository pour l'entité User. Fournit les méthodes d'accès aux données pour les utilisateurs.
+ * Hérite de JpaRepository pour les opérations CRUD de base.
+ */
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 	

@@ -6,6 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+/**
+ * Interface de repository pour l'entité Subscription. Fournit les méthodes d'accès aux données pour les abonnements.
+ * Hérite de JpaRepository pour les opérations CRUD de base.
+ */
 
 @Repository
 public interface SubscriptionRepository extends JpaRepository<Subscription, Long> {

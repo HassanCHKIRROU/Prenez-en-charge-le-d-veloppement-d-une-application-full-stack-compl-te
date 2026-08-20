@@ -45,6 +45,11 @@ class SubscriptionServiceTest {
     private User user;
     private Topic topic;
 
+    
+    
+    
+    
+    
     @BeforeEach
     void setUp() {
         SecurityContextHolder.setContext(securityContext);
@@ -60,6 +65,11 @@ class SubscriptionServiceTest {
         topic.setTitle("Java");
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldSubscribe() {
         when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(user));
@@ -71,6 +81,11 @@ class SubscriptionServiceTest {
         verify(subscriptionRepository, times(1)).save(any(Subscription.class));
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldThrowExceptionWhenAlreadySubscribed() {
         when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(user));
@@ -84,6 +99,11 @@ class SubscriptionServiceTest {
         verify(subscriptionRepository, never()).save(any(Subscription.class));
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldUnsubscribe() {
         when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(user));
@@ -94,6 +114,11 @@ class SubscriptionServiceTest {
         verify(subscriptionRepository, times(1)).deleteByUserIdAndTopicId(1L, 1L);
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldThrowExceptionWhenNotSubscribed() {
         when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(user));
@@ -106,6 +131,11 @@ class SubscriptionServiceTest {
         verify(subscriptionRepository, never()).deleteByUserIdAndTopicId(anyLong(), anyLong());
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldThrowExceptionWhenUserNotFound() {
         when(userRepository.findByUsername("testuser")).thenReturn(Optional.empty());
@@ -115,6 +145,11 @@ class SubscriptionServiceTest {
         });
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldThrowExceptionWhenTopicNotFound() {
         when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(user));

@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
 
 -- DONNÉES DE TEST : Topics
 
-INSERT INTO `topic` (`title`, `description`) VALUES
+INSERT IGNORE INTO `topic` (`title`, `description`) VALUES
 ('JavaScript', 'Tout sur JavaScript, le langage du web moderne. ES6+, TypeScript, et les frameworks comme React, Angular et Vue.js.'),
 ('Java', 'Le langage Java, Spring Boot, Hibernate, et tout l''écosystème JVM. Architecture d''entreprises et microservices.'),
 ('Python', 'Python et ses frameworks : Django, Flask. Data science, machine learning, et automatisation.'),

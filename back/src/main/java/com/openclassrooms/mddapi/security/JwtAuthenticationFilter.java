@@ -15,6 +15,13 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
+/**
+ * Filtre d'authentification JWT.
+ * 
+ * Intercepte chaque requête HTTP pour vérifier la présence d'un token JWT dans l'en-tête Authorization. 
+ * Si le token est valide, l'utilisateur est authentifié et le contexte de sécurité est mis à jour.
+ */
+
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
@@ -28,15 +35,23 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private UserDetailsService userDetailsService;
 
  
+    
+    
+    
+    /**
+     * Filtre les requêtes HTTP pour authentifier l'utilisateur via JWT.
+     * Les requêtes vers /auth/** sont ignorées (pas de token requis).
+     * Pour les autres requêtes, le token est extrait et validé.
+     */
+    
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain)
             throws ServletException, IOException {
 
-        // Ignorer les endpoints d'auth
+  
         String path = request.getRequestURI();
-       // if (path.startsWith("/auth/register") || path.startsWith("/auth/login")) {
         if(path.startsWith("/auth")) {
             filterChain.doFilter(request, response);
             return;
@@ -66,7 +81,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     
     
     
-    
+    /**
+     * Extrait le token JWT de l'en-tête Authorization de la requête.
+     * L'entête doit être au format : "Bearer {token}".
+     */
     
     private String getJwtFromRequest(HttpServletRequest request) {
         String bearerToken = request.getHeader("Authorization");

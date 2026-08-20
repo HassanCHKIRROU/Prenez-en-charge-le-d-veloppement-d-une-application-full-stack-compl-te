@@ -12,6 +12,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Service responsable de la gestion des thèmes de l'application.
+ * Cette classe permet de récupérer la liste des thèmes disponibles et de déterminer, pour chaque thème,
+ *  si l'utilisateur actuellement authentifié y est abonné.</p>
+ * Les données récupérées depuis la base de données sont converties
+ * en objets {TopicDTO} destinés à être utilisés par les couches supérieures de l'application.
+ */
+
 @Service
 public class TopicService {
 	
@@ -25,7 +33,7 @@ public class TopicService {
     
     
     
-
+    // Constructeur
     public TopicService(TopicRepository topicRepository, UserRepository userRepository,
                         SubscriptionRepository subscriptionRepository) {
         this.topicRepository = topicRepository;
@@ -39,6 +47,17 @@ public class TopicService {
     
     
     
+    
+    /**
+     * Récupère l'ensemble des thèmes disponibles dans l'application.
+     * La méthode identifie tout d'abord l'utilisateur actuellement authentifié à partir du contexte de sécurité Spring Security.
+     * Elle récupère ensuite tous les thèmes disponibles et détermine pour chacun d'eux si l'utilisateur est déjà abonné.
+     * Chaque thème est converti en { TopicDTO}. Le champ
+     * { subscribed} permet d'indiquer si l'utilisateur connecté est actuellement abonné au thème concerné.</p>
+     *
+     * @return liste des thèmes disponibles sous forme de { TopicDTO}, avec leur statut d'abonnement
+     * @throws RuntimeException si l'utilisateur actuellement authentifié n'est pas trouvé
+     */
     
     public List<TopicDTO> getAllTopics() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();

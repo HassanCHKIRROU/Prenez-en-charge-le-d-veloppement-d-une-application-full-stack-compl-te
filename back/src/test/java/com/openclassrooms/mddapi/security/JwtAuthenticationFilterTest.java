@@ -45,11 +45,17 @@ class JwtAuthenticationFilterTest {
     private final String validToken = "valid.jwt.token";
     private final String username = "testuser";
 
+    
+    
     @BeforeEach
     void setUp() {
-        // Ne pas stubbé ici
+       
     }
 
+    
+    
+    
+    
     @Test
     void shouldSkipAuthForRegister() throws ServletException, IOException {
         when(request.getRequestURI()).thenReturn("/auth/register");
@@ -60,6 +66,10 @@ class JwtAuthenticationFilterTest {
         verify(tokenProvider, never()).validateToken(anyString());
     }
 
+    
+    
+    
+    
     @Test
     void shouldSkipAuthForLogin() throws ServletException, IOException {
         when(request.getRequestURI()).thenReturn("/auth/login");
@@ -70,6 +80,11 @@ class JwtAuthenticationFilterTest {
         verify(tokenProvider, never()).validateToken(anyString());
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldAuthenticateWithValidToken() throws ServletException, IOException {
         when(request.getRequestURI()).thenReturn("/topics");
@@ -84,6 +99,11 @@ class JwtAuthenticationFilterTest {
         verify(tokenProvider, times(1)).validateToken(validToken);
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldNotAuthenticateWithInvalidToken() throws ServletException, IOException {
         when(request.getRequestURI()).thenReturn("/topics");
@@ -96,6 +116,9 @@ class JwtAuthenticationFilterTest {
         verify(userDetailsService, never()).loadUserByUsername(anyString());
     }
 
+    
+    
+    
     @Test
     void shouldHandleMissingAuthorizationHeader() throws ServletException, IOException {
         when(request.getRequestURI()).thenReturn("/topics");
@@ -107,6 +130,11 @@ class JwtAuthenticationFilterTest {
         verify(tokenProvider, never()).validateToken(anyString());
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldHandleAuthorizationHeaderWithoutBearer() throws ServletException, IOException {
         when(request.getRequestURI()).thenReturn("/topics");

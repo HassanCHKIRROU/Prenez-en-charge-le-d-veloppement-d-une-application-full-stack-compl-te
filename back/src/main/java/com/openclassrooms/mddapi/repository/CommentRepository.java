@@ -6,6 +6,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Interface de repository pour l'entité Comment. Fournit les méthodes d'accès aux données pour les commentaires.
+ * Hérite de JpaRepository pour les opérations CRUD de base.
+ */
+
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Long> {
 	

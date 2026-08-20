@@ -2,12 +2,6 @@ package com.openclassrooms.mddapi.model;
 
 import jakarta.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import org.hibernate.validator.constraints.Email;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -16,10 +10,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "user")
-//@Data
-//@Builder
-//@NoArgsConstructor
-//@AllArgsConstructor
 public class User {
 	
 

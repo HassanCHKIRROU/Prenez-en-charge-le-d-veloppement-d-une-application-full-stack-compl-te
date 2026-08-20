@@ -31,6 +31,9 @@ class TopicControllerTest {
 
     private TopicDTO topicDTO;
 
+    
+    
+    
     @BeforeEach
     void setUp() {
         mockMvc = MockMvcBuilders.standaloneSetup(topicController).build();
@@ -42,6 +45,11 @@ class TopicControllerTest {
         topicDTO.setSubscribed(false);
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldGetAllTopics() throws Exception {
         when(topicService.getAllTopics()).thenReturn(List.of(topicDTO));
@@ -52,6 +60,10 @@ class TopicControllerTest {
                 .andExpect(jsonPath("$[0].title").value("Java"));
     }
 
+    
+    
+    
+    
     @Test
     void shouldReturnEmptyList() throws Exception {
         when(topicService.getAllTopics()).thenReturn(List.of());

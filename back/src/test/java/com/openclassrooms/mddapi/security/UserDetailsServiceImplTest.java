@@ -25,6 +25,9 @@ class UserDetailsServiceImplTest {
     @InjectMocks
     private UserDetailsServiceImpl userDetailsService;
 
+    
+    
+    
     @Test
     void shouldLoadUserByUsername() {
         User user = new User();
@@ -40,6 +43,10 @@ class UserDetailsServiceImplTest {
         assertThat(userDetails.getUsername()).isEqualTo("testuser");
     }
 
+    
+    
+    
+    
     @Test
     void shouldLoadUserByEmail() {
         User user = new User();
@@ -56,6 +63,11 @@ class UserDetailsServiceImplTest {
         assertThat(userDetails.getUsername()).isEqualTo("testuser");
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldThrowExceptionWhenUserNotFound() {
         when(userRepository.findByEmailOrUsername("unknown", "unknown"))

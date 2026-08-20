@@ -13,6 +13,15 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+/**
+ * Service responsable de la gestion de l'authentification des utilisateurs.
+ *Cette classe contient la logique métier associée à l'inscription et à la connexion des utilisateurs.
+ *
+ * Elle utilise Spring Security pour authentifier les utilisateurs,
+ * un encodeur BCrypt pour sécuriser les mots de passe et un fournisseur
+ * de tokens JWT pour générer les tokens utilisés lors des requêtes authentifiées.
+ */
+
 @Service
 public class AuthService {
 	
@@ -28,7 +37,7 @@ public class AuthService {
     
     
     
-
+    //Constructeur
     public AuthService(AuthenticationManager authenticationManager, UserRepository userRepository,
                        PasswordEncoder passwordEncoder, JwtTokenProvider tokenProvider) {
         this.authenticationManager = authenticationManager;
@@ -42,6 +51,17 @@ public class AuthService {
     
     
     
+    
+    /**
+     * Inscrit un nouvel utilisateur dans l'application.
+     * Avant de créer l'utilisateur, la méthode vérifie que son adresse e-mail et son nom d'utilisateur ne sont pas déjà utilisés.
+       Le mot de passe est encodé avant d'être enregistré en base
+     *  Une authentification est ensuite effectuée afin de générer un token JWT pour le nouvel utilisateur
+     *
+     * @param request données nécessaires à l'inscription de l'utilisateur
+     * @return les informations d'authentification de l'utilisateur, son token JWT
+     * @throws RuntimeException si l'adresse e-mail ou le nom d'utilisateur est déjà utilisé
+     */
 
     public AuthResponse register(RegisterRequest request) {
         // Vérifier si l'email existe déjà
@@ -54,7 +74,7 @@ public class AuthService {
             throw new RuntimeException("Ce nom d'utilisateur est déjà utilisé");
         }
 
-        //  Créer l'utilisateur sans builder
+        //  Créer l'utilisateur 
         User user = new User();
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
@@ -88,6 +108,18 @@ public class AuthService {
     
     
     
+    /**
+     * Authentifie un utilisateur existant.
+     *
+     * La méthode utilise l'adresse e-mail ou le nom d'utilisateur fourni dans la requête pour effectuer l'authentification.
+     * Si celle-ci réussit, un token JWT est généré et ajouté à la réponse.
+     * Les informations de l'utilisateur sont ensuite récupérées depuis la base de données afin de construire la réponse
+     * d'authentification.
+     *
+     * @param request données contenant l'identifiant et le mot de passe de l'utilisateur
+     * @return les informations d'authentification de l'utilisateur, notamment son token JWT
+     * @throws RuntimeException si l'utilisateur correspondant aux identifiants n'est pas trouvé
+     */
     
     public AuthResponse login(LoginRequest request) {
         Authentication authentication = authenticationManager.authenticate(

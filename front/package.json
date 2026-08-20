@@ -1,4 +1,4 @@
-{
+{ 
   "name": "front",
   "version": "0.0.0",
   "private": true,
@@ -13,8 +13,10 @@
   "e2e:run": "cypress run",
   "start:coverage": "ng serve --extra-webpack-config=webpack.coverage.js",
   "precoverage:clean": "kill-port 4200 && rimraf .nyc_output coverage cypress/reports",
-  "e2e:coverage": "npm run precoverage:clean && start-server-and-test start:coverage http://localhost:4200 \"cypress run --env coverage=true ; npx nyc report --reporter=html --reporter=text-summary\""
-},
+  "e2e:coverage": "npm run precoverage:clean && start-server-and-test start:coverage http://localhost:4200 \"cypress run --env coverage=true\" && npm run coverage:report",
+  "coverage:report": "nyc report --reporter=html --reporter=text-summary"
+  },
+
   "dependencies": {
     "@angular/animations": "14.2.12",
     "@angular/cdk": "14.2.7",

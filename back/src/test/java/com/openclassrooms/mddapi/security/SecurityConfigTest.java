@@ -18,22 +18,28 @@ class SecurityConfigTest {
     private SecurityConfig securityConfig;
     private AuthenticationConfiguration authenticationConfiguration;
 
+    
+    
     @BeforeEach
     void setUp() {
         securityConfig = new SecurityConfig();
         authenticationConfiguration = mock(AuthenticationConfiguration.class);
     }
 
-    // ============================================================
-    // TESTS PASSWORD ENCODER
-    // ============================================================
-
+    
+    
+    
+    
     @Test
     void shouldReturnPasswordEncoder() {
         PasswordEncoder encoder = securityConfig.passwordEncoder();
         assertThat(encoder).isInstanceOf(BCryptPasswordEncoder.class);
     }
 
+    
+    
+    
+    
     @Test
     void shouldEncodePassword() {
         PasswordEncoder encoder = securityConfig.passwordEncoder();
@@ -44,6 +50,11 @@ class SecurityConfigTest {
         assertThat(encoder.matches(rawPassword, encodedPassword)).isTrue();
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldReturnFalseForInvalidPassword() {
         PasswordEncoder encoder = securityConfig.passwordEncoder();
@@ -53,10 +64,11 @@ class SecurityConfigTest {
         assertThat(encoder.matches("WrongPassword123!", encodedPassword)).isFalse();
     }
 
-    // ============================================================
-    // TESTS AUTHENTICATION MANAGER
-    // ============================================================
-
+    
+    
+    
+    
+    
     @Test
     void shouldReturnAuthenticationManager() throws Exception {
         AuthenticationManager expectedManager = mock(AuthenticationManager.class);
@@ -68,9 +80,9 @@ class SecurityConfigTest {
         assertThat(actualManager).isEqualTo(expectedManager);
     }
 
-    // ============================================================
-    // TESTS CORS CONFIGURATION - Simplifiés
-    // ============================================================
+ 
+    
+    
 
     @Test
     void shouldReturnCorsConfigurationSource() {
@@ -81,14 +93,17 @@ class SecurityConfigTest {
         assertThat(source.getClass()).isEqualTo(UrlBasedCorsConfigurationSource.class);
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldHaveCorsConfigurationRegistered() {
         UrlBasedCorsConfigurationSource source = 
             (UrlBasedCorsConfigurationSource) securityConfig.corsConfigurationSource();
         
-        // ✅ Vérifier que la source contient des registrations
-        // On ne peut pas tester getCorsConfiguration("/**") directement,
-        // donc on vérifie que le bean est correctement configuré
+        
         assertThat(source).isNotNull();
     }
 }

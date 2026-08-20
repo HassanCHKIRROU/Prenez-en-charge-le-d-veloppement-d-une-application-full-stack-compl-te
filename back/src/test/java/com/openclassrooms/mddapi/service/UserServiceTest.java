@@ -55,6 +55,11 @@ class UserServiceTest {
     private Subscription subscription;
     private UpdateProfileRequest updateRequest;
 
+    
+    
+    
+    
+    
     @BeforeEach
     void setUp() {
         SecurityContextHolder.setContext(securityContext);
@@ -85,6 +90,11 @@ class UserServiceTest {
         updateRequest.setPassword("NewTest1234!");
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldGetCurrentUserProfileSuccessfully() {
         // Given
@@ -103,6 +113,11 @@ class UserServiceTest {
         assertThat(response.getSubscriptions().get(0).getTitle()).isEqualTo("Java");
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldThrowExceptionWhenUserNotFound() {
         // Given
@@ -114,6 +129,11 @@ class UserServiceTest {
                 .hasMessage("Utilisateur non trouvé");
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldUpdateProfileSuccessfully() {
         // Given
@@ -134,6 +154,12 @@ class UserServiceTest {
         verify(userRepository, times(1)).save(any(User.class));
     }
 
+    
+    
+    
+    
+    
+    
     @Test
     void shouldThrowExceptionWhenUsernameAlreadyExists() {
         // Given
@@ -147,6 +173,13 @@ class UserServiceTest {
         verify(userRepository, never()).save(any(User.class));
     }
 
+    
+    
+    
+    
+    
+    
+    
     @Test
     void shouldThrowExceptionWhenEmailAlreadyExists() {
         // Given
@@ -161,6 +194,11 @@ class UserServiceTest {
         verify(userRepository, never()).save(any(User.class));
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldUpdateProfileWithoutPassword() {
         // Given

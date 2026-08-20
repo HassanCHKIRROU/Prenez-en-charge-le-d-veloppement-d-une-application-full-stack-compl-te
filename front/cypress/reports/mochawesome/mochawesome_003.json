@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2026-08-08T17:15:19.559Z",
-    "end": "2026-08-08T17:15:22.314Z",
-    "duration": 2755,
+    "start": "2026-08-20T20:02:26.953Z",
+    "end": "2026-08-20T20:02:34.175Z",
+    "duration": 7222,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "f6f81960-7ba2-4bb8-a9ad-4a9b37bf978d",
+      "uuid": "3f60b50c-0456-4655-8f5b-19f410f287f5",
       "title": "",
       "fullFile": "cypress\\e2e\\article.cy.ts",
       "file": "cypress\\e2e\\article.cy.ts",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "9366696f-05ae-4e2c-bc6a-022ac7db4f89",
+          "uuid": "9170f70b-ced4-4109-9e57-a6ac75aee0e5",
           "title": "Gestion des articles",
           "fullFile": "",
           "file": "",
@@ -38,29 +38,29 @@
               "title": "should navigate to create article page",
               "fullTitle": "Gestion des articles should navigate to create article page",
               "timedOut": null,
-              "duration": 2423,
+              "duration": 5252,
               "state": "passed",
-              "speed": "fast",
+              "speed": "medium",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "// 2. Visite directe de la page de création d'article\ncy.visit('/article/create');\ncy.url().should('include', '/article/create');\n// 3. Vérification du titre de la page\ncy.contains('h1', 'Créer un nouvel article').should('be.visible');",
+              "code": "cy.visit('/article/create');\ncy.url().should('include', '/article/create');\ncy.contains('h1', 'Créer un nouvel article').should('be.visible');",
               "err": {},
-              "uuid": "eb340b64-5857-4b51-a579-8b6c5f51e9b8",
-              "parentUUID": "9366696f-05ae-4e2c-bc6a-022ac7db4f89",
+              "uuid": "1b2424e7-1599-4645-aeed-321d0278460c",
+              "parentUUID": "9170f70b-ced4-4109-9e57-a6ac75aee0e5",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "eb340b64-5857-4b51-a579-8b6c5f51e9b8"
+            "1b2424e7-1599-4645-aeed-321d0278460c"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2423,
+          "duration": 5252,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

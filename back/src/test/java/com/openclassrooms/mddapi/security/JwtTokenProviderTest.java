@@ -25,6 +25,8 @@ class JwtTokenProviderTest {
     private String secret = "zJ5nY8tR3mX9cL2wQ7fD4vK6pS1hU8oAzJ5nY8tR3mX9cL2wQ7fD4vK6pS1hU8oA";
     private int expiration = 86400000;
 
+    
+    
     @BeforeEach
     void setUp() {
         tokenProvider = new JwtTokenProvider();
@@ -42,6 +44,11 @@ class JwtTokenProviderTest {
         }
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldGenerateToken() {
         // Given
@@ -57,6 +64,11 @@ class JwtTokenProviderTest {
         assertThat(token).isNotEmpty();
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldValidateToken() {
         // Given
@@ -72,6 +84,11 @@ class JwtTokenProviderTest {
         assertThat(isValid).isTrue();
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldGetUsernameFromToken() {
         // Given
@@ -87,6 +104,12 @@ class JwtTokenProviderTest {
         assertThat(username).isEqualTo("testuser");
     }
 
+    
+    
+    
+    
+    
+    
     @Test
     void shouldReturnFalseForInvalidToken() {
         // Given

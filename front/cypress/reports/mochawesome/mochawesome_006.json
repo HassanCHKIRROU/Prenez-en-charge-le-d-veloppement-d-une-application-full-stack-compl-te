@@ -5,9 +5,9 @@
     "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2026-08-08T17:15:39.106Z",
-    "end": "2026-08-08T17:15:41.323Z",
-    "duration": 2217,
+    "start": "2026-08-20T20:03:01.826Z",
+    "end": "2026-08-20T20:03:04.739Z",
+    "duration": 2913,
     "testsRegistered": 3,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "f82a37bf-ea19-4ec2-b2e6-e03f8324b9bd",
+      "uuid": "e1422b10-4466-4d6d-9f46-15e739311c72",
       "title": "",
       "fullFile": "cypress\\e2e\\home.cy.ts",
       "file": "cypress\\e2e\\home.cy.ts",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "a8dfb80f-114c-4b2a-bdd3-e43cca04cb9d",
+          "uuid": "32b49c4b-b4b9-4cb3-bf1b-01220642b492",
           "title": "Page d'accueil",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "should display the home page",
               "fullTitle": "Page d'accueil should display the home page",
               "timedOut": null,
-              "duration": 1144,
+              "duration": 584,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.contains('Se connecter').should('be.visible');\ncy.contains(\"S'inscrire\").should('be.visible');",
               "err": {},
-              "uuid": "7970fe52-fce0-4a5c-b083-cced4f899c8b",
-              "parentUUID": "a8dfb80f-114c-4b2a-bdd3-e43cca04cb9d",
+              "uuid": "f0d5ca3f-b16f-476b-9d9c-82e138d80ad3",
+              "parentUUID": "32b49c4b-b4b9-4cb3-bf1b-01220642b492",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "should navigate to login",
               "fullTitle": "Page d'accueil should navigate to login",
               "timedOut": null,
-              "duration": 334,
+              "duration": 459,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "cy.contains('Se connecter').click();\ncy.url().should('include', '/login');",
               "err": {},
-              "uuid": "255211df-d9cb-47a1-a094-306745976648",
-              "parentUUID": "a8dfb80f-114c-4b2a-bdd3-e43cca04cb9d",
+              "uuid": "960e58e8-82a4-4615-b5a8-d5da7ca4a395",
+              "parentUUID": "32b49c4b-b4b9-4cb3-bf1b-01220642b492",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "should navigate to register",
               "fullTitle": "Page d'accueil should navigate to register",
               "timedOut": null,
-              "duration": 279,
+              "duration": 280,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -83,22 +83,22 @@
               "context": null,
               "code": "cy.contains(\"S'inscrire\").click();\ncy.url().should('include', '/register');",
               "err": {},
-              "uuid": "bc5ccf14-39e3-48d6-a4e3-9c22d5eb5b0f",
-              "parentUUID": "a8dfb80f-114c-4b2a-bdd3-e43cca04cb9d",
+              "uuid": "f3bec5b6-e5c4-4dc4-877d-781c7e0f4dbe",
+              "parentUUID": "32b49c4b-b4b9-4cb3-bf1b-01220642b492",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "7970fe52-fce0-4a5c-b083-cced4f899c8b",
-            "255211df-d9cb-47a1-a094-306745976648",
-            "bc5ccf14-39e3-48d6-a4e3-9c22d5eb5b0f"
+            "f0d5ca3f-b16f-476b-9d9c-82e138d80ad3",
+            "960e58e8-82a4-4615-b5a8-d5da7ca4a395",
+            "f3bec5b6-e5c4-4dc4-877d-781c7e0f4dbe"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1757,
+          "duration": 1323,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

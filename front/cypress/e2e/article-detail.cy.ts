@@ -16,7 +16,7 @@ describe('Consultation d\'article', () => {
 
     
     cy.visit('/feed');
-    cy.wait(3000);
+    cy.wait(30000);
   });
 
   

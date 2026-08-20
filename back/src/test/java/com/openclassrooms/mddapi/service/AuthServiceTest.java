@@ -49,6 +49,9 @@ class AuthServiceTest {
     private LoginRequest loginRequest;
     private User user;
 
+    
+    
+    
     @BeforeEach
     void setUp() {
         registerRequest = new RegisterRequest();
@@ -67,6 +70,12 @@ class AuthServiceTest {
         user.setPassword("encodedPassword");
     }
 
+    
+    
+    
+    
+    
+    
     @Test
     void shouldRegisterUserSuccessfully() {
         // Given
@@ -89,6 +98,12 @@ class AuthServiceTest {
         verify(userRepository, times(1)).save(any(User.class));
     }
 
+    
+    
+    
+    
+    
+    
     @Test
     void shouldThrowExceptionWhenEmailAlreadyExists() {
         // Given
@@ -101,6 +116,11 @@ class AuthServiceTest {
         verify(userRepository, never()).save(any(User.class));
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldThrowExceptionWhenUsernameAlreadyExists() {
         // Given
@@ -114,6 +134,11 @@ class AuthServiceTest {
         verify(userRepository, never()).save(any(User.class));
     }
 
+    
+    
+    
+    
+    
     @Test
     void shouldLoginSuccessfully() {
         // Given
@@ -133,6 +158,12 @@ class AuthServiceTest {
         assertThat(response.getId()).isEqualTo(1L);
     }
 
+    
+    
+    
+    
+    
+    
     @Test
     void shouldThrowExceptionWhenUserNotFoundDuringLogin() {
         // Given

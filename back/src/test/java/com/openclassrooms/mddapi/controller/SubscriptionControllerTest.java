@@ -24,17 +24,24 @@ class SubscriptionControllerTest {
     @InjectMocks
     private SubscriptionController subscriptionController;
 
+    
+    
     @BeforeEach
     void setUp() {
         mockMvc = MockMvcBuilders.standaloneSetup(subscriptionController).build();
     }
 
+    
+    
+    
     @Test
     void shouldSubscribe() throws Exception {
         mockMvc.perform(post("/subscriptions/1"))
                 .andExpect(status().isOk());
     }
 
+    
+    
     @Test
     void shouldUnsubscribe() throws Exception {
         mockMvc.perform(delete("/subscriptions/1"))

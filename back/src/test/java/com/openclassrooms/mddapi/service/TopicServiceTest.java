@@ -46,6 +46,9 @@ class TopicServiceTest {
     private User user;
     private Topic topic;
 
+    
+    
+    
     @BeforeEach
     void setUp() {
         SecurityContextHolder.setContext(securityContext);
@@ -62,6 +65,13 @@ class TopicServiceTest {
         topic.setDescription("Java programming");
     }
 
+    
+    
+    
+    
+    
+    
+    
     @Test
     void shouldGetAllTopics() {
         when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(user));
@@ -76,6 +86,13 @@ class TopicServiceTest {
         assertThat(topics.get(0).getSubscribed()).isFalse();
     }
 
+    
+    
+    
+    
+    
+    
+    
     @Test
     void shouldReturnSubscribedTrue() {
         when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(user));
@@ -87,6 +104,13 @@ class TopicServiceTest {
         assertThat(topics.get(0).getSubscribed()).isTrue();
     }
 
+    
+    
+    
+    
+    
+    
+    
     @Test
     void shouldReturnEmptyListWhenNoTopics() {
         when(userRepository.findByUsername("testuser")).thenReturn(Optional.of(user));
@@ -97,6 +121,13 @@ class TopicServiceTest {
         assertThat(topics).isEmpty();
     }
 
+    
+    
+    
+    
+    
+    
+    
     @Test
     void shouldThrowExceptionWhenUserNotFound() {
         when(userRepository.findByUsername("testuser")).thenReturn(Optional.empty());

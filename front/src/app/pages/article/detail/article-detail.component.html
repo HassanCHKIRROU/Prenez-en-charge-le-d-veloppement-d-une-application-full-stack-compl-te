@@ -39,7 +39,11 @@
 
         <!-- Bulle de commentaire -->
         <div *ngFor="let comment of article.comments" class="comment-item">
-          <div class="comment-username">{{ comment.authorUsername }}</div>
+          <div class="comment-user-info">
+            <span class="comment-username">{{ comment.authorUsername }}</span>
+            <span class="comment-date">{{ comment.createdAt | date:'dd/MM/yyyy' }}</span>
+          </div>
+
           <div class="comment-bubble">
             <p class="comment-content">{{ comment.content }}</p>
           </div>

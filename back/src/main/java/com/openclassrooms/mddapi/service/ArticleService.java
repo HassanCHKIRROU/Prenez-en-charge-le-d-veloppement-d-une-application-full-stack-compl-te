@@ -26,6 +26,20 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * Service chargé de la gestion des articles et des commentaires.
+ *Cette classe contient la logique métier permettant notamment de :
+ * 
+ *     récupérer le fil d'actualité de l'utilisateur 
+ *     créer un nouvel article 
+ *     récupérer un article par son identifiant 
+ *     ajouter un commentaire à un article 
+ *     convertir les entités métier en objets DTO destinés à l'API.
+
+ *Le service utilise les repositories nécessaires pour accéderaux données persistées concernant les articles commentaires,
+ * utilisateurs, thèmes et abonnements.
+ */
+
 @Service
 public class ArticleService {
 
@@ -39,7 +53,7 @@ public class ArticleService {
     
     
     
-
+    //Constructeur
     public ArticleService(ArticleRepository articleRepository, CommentRepository commentRepository,
                           UserRepository userRepository, TopicRepository topicRepository,
                           SubscriptionRepository subscriptionRepository) {
@@ -56,7 +70,24 @@ public class ArticleService {
     
     
     
-    
+    /**
+     * Récupère le fil d'actualité de l'utilisateur actuellement connecté.
+     *Le fil d'actualité contient :
+     * 
+     *     les articles publiés dans les thèmes auxquels l'utilisateur est abonné 
+     *     les articles créés par l'utilisateur lui-même.
+     *Les articles en double sont supprimés puis la liste est triéeselon la date de création.
+     * Le paramètre {@code sort} permet de choisir l'ordre croissant ou décroissant.
+     *
+     * Les articles sont ensuite convertis en objets {ArticleSummaryDTO}. Le contenu est limité à 100 caractères
+     * dans le résumé.
+     *
+     * @param sort ordre de tri des articles. La valeur {@code "asc"} correspond à un tri croissant ; toute autre valeur
+     *        entraîne un tri décroissant
+     * @return liste des articles correspondant au fil d'actualité
+     *         de l'utilisateur connecté
+     * @throws RuntimeException si l'utilisateur connecté n'est pas trouvé
+     */
     
     public List<ArticleSummaryDTO> getFeed(String sort) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -119,7 +150,18 @@ public class ArticleService {
     
     
     
-    
+    /**
+     * Crée un nouvel article à partir des données fournies.
+     * L'utilisateur actuellement authentifié est utilisé comme auteur de l'article.
+     *  Le thème indiqué dans la requête est recherché dans la base de données.
+     *   S'il n'existe pas, un nouveau thème est créé automatiquement.
+     *
+     * <p>Une fois l'article enregistré, il est converti en {ArticleResponse} afin d'être retourné à l'appelant.
+     *
+     * @param request données nécessaires à la création de l'article
+     * @return l'article créé sous forme de { ArticleResponse}
+     * @throws RuntimeException si l'utilisateur n'est pas trouvé ou si  une erreur survient lors de la création
+     */
     
     
     @Transactional
@@ -159,7 +201,15 @@ public class ArticleService {
     
     
     
-    
+    /**
+     * Recherche un article à partir de son identifiant.
+     * Si l'article est trouvé, il est converti en{ArticleResponse}, incluant son auteur,
+     * son thème et ses commentaires.
+     *
+     * @param articleId identifiant de l'article recherché
+     * @return l'article sous forme de {ArticleResponse}
+     * @throws RuntimeException si aucun article correspondant à l'identifiant fourni n'est trouvé
+     */
     	
     public ArticleResponse getArticleById(Long articleId) {
         Article article = articleRepository.findById(articleId)
@@ -174,6 +224,17 @@ public class ArticleService {
     
     
     
+    
+    /**
+     * Ajoute un commentaire à un article.
+     *L'utilisateur actuellement authentifié est associé comme auteur du commentaire.
+     * Le commentaire est ensuite enregistré en basede données et converti en { CommentDTO}.
+     *
+     * @param articleId identifiant de l'article auquel le commentaire doit être associé
+     * @param request données contenant le contenu du commentaire
+     * @return le commentaire créé sous forme de {CommentDTO}
+     * @throws RuntimeException si l'utilisateur ou l'article n'est pas trouvé
+     */
     
     @Transactional
     public CommentDTO addComment(Long articleId, CommentRequest request) {
@@ -204,6 +265,18 @@ public class ArticleService {
     
     
     
+    
+    /**
+     * Convertit une entité { Article} en objet {ArticleResponse}.
+     * Cette méthode récupère également les commentaires associés à l'article et construit les DTO correspondants pour l'auteur,
+     * le thème et les commentaires.
+     *
+     * La méthode est privée car elle est uniquement utilisée à l'intérieur de ce service pour préparer les réponses
+     * retournées par les différentes opérations sur les articles.
+     *
+     * @param article entité article à convertir
+     * @return l'article converti sous forme de { ArticleResponse}
+     */
     
     private ArticleResponse mapToResponse(Article article) {
     	

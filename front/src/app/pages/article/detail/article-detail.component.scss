@@ -115,6 +115,9 @@ FIGMA DESKTOP
   margin-bottom: 30px;
 }
 
+
+
+
 .comments-title {
   font-family: Inter, sans-serif;
   font-weight: 400;
@@ -134,19 +137,37 @@ FIGMA DESKTOP
 .comment-item {
   display: flex;
   align-items: flex-start;
+  
   gap: 16px;
   margin-bottom: 16px;
+  
 }
+
+
 
 .comment-username {
   font-family: Inter, sans-serif;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 100%;
   letter-spacing: 0%;
   color: #000000;
   min-width: 114px;
   padding-top: 4px;
+}
+
+
+.comment-user-info{
+  display: flex;
+  flex-direction: column;
+}
+.comment-date {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  color: #4d4a4a;
+  margin-top: 4px;
 }
 
 .comment-bubble {
@@ -346,6 +367,14 @@ FIGMA DESKTOP
     margin-bottom: 16px;
   }
 
+  .comment-user-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+   
+  
+
   .comment-username {
     width: 114px;
     height: 27px;
@@ -353,7 +382,7 @@ FIGMA DESKTOP
     line-height: 100%;
     text-align: right;
     padding-top: 0;
-    margin-right: 12px;
+    margin-right: 10px;
   }
 
   .comment-bubble {

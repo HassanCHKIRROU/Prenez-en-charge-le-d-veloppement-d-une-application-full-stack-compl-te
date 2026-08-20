@@ -1,18 +1,17 @@
 package com.openclassrooms.mddapi.controller;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.openclassrooms.mddapi.service.SubscriptionService;
 
-//import com.openclassrooms.mddapi.service.SubscriptionService;
+
+
 
 
 
 @RestController
 @RequestMapping("/subscriptions")
-//@RequiredArgsConstructor
 public class SubscriptionController {
 
 	
@@ -29,10 +28,10 @@ public class SubscriptionController {
 
 
 
-    
+    //S'abonne à un thème pour l'utilisateur connecté
     
 	@PostMapping("/{topicId}")
-    public ResponseEntity<Void> subscribe(@PathVariable Long topicId) {
+	 public ResponseEntity<Void> subscribe(@PathVariable Long topicId) {
         subscriptionService.subscribe(topicId);
         return ResponseEntity.ok().build();
     }
@@ -40,7 +39,8 @@ public class SubscriptionController {
     
 	
 	
-    
+    //Se désabonne d'un thème pour l'utilisateur connecté.
+	
     @DeleteMapping("/{topicId}")
     public ResponseEntity<Void> unsubscribe(@PathVariable Long topicId) {
         subscriptionService.unsubscribe(topicId);
